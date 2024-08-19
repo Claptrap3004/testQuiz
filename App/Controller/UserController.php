@@ -24,6 +24,8 @@ class UserController extends Controller
      */
     public function login(): void
     {
+        $pwLog = password_hash('quizAdmin', PASSWORD_BCRYPT);
+        file_put_contents('pwHash.log',$pwLog);
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $email = $_POST['email'] ?? '';
             $password = $_POST['password'] ?? '';
@@ -40,7 +42,7 @@ class UserController extends Controller
                 $passwordValidate = $_POST['passwordValidate'] ?? '';
                 $userName = $_POST['userName'] ?? '';
 
-                $error = $this->checkErrorsRegister($email, $emailValidate, $password, $passwordValidate);
+                $error = $this->checkErrorsRegister($email, $emailValidate, $password, $passwordValidate, $userName);
                 if ($error->isNoError()) $this->successfulRegister($userName,$email,$password);
                 else $this->reportError($error);
             }
@@ -89,7 +91,7 @@ class UserController extends Controller
         elseif (!$this->userExists($email)) $error->email = ErrorMessage::USER_DOES_NOT_EXIST->getErrorElement($email);
         if (!$this->validatePassword($password)) $error->password = ErrorMessage::PASSWORD_INVALID->getErrorElement();
         elseif (!$this->checkCorrectPassword($email, $password)) $error->email = ErrorMessage::CREDENTIALS_INVALID->getErrorElement($email);
-
+        if ($error->email === null) $error->email = ErrorMessage::EMAILS_NOT_MATCH->getNoErrorElement($email);
         return $error;
     }
 
@@ -100,9 +102,10 @@ class UserController extends Controller
      * @param string $emailValidate
      * @param string $password
      * @param string $passwordValidate
+     * @param string $userName
      * @return LoginRegisterError
      */
-    private function checkErrorsRegister(string $email, string $emailValidate, string $password, string $passwordValidate): LoginRegisterError
+    private function checkErrorsRegister(string $email, string $emailValidate, string $password, string $passwordValidate, string $userName): LoginRegisterError
     {
         $error = new LoginRegisterError();
         $error->isLoginError = false;
@@ -116,6 +119,9 @@ class UserController extends Controller
             $error->password = ErrorMessage::PASSWORDS_NOT_MATCH->getErrorElement();
             $error->passwordValidate = ErrorMessage::PASSWORDS_NOT_MATCH->getErrorElement();
         }
+        if ($error->username === null) $error->username = ErrorMessage::USER_CREATE_FAILS->getNoErrorElement($userName);
+        if ($error->email === null) $error->email = ErrorMessage::EMAILS_NOT_MATCH->getNoErrorElement($email);
+        if ($error->emailValidate === null) $error->emailValidate = ErrorMessage::EMAILS_NOT_MATCH->getNoErrorElement($emailValidate);
         return $error;
     }
 

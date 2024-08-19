@@ -20,7 +20,6 @@ const handleErrors = (errorData) => {
     for (const errorObjectKey in errorObject) {
         if (errorObjectKey === 'isLoginError') continue;
         if (errorObject[errorObjectKey] !== null){
-            console.log(errorObjectKey);
             let inputId = 'input' + capitalize(errorObjectKey);
             showError(inputId, errorObject[errorObjectKey])
         }
@@ -30,14 +29,27 @@ const handleErrors = (errorData) => {
 
 const showError = (id, errorObject) => {
     let inputField = document.querySelector('#'+ id);
-    let hint = document.createElement('div');
     let divId = '#div' + capitalize(id);
-    hint.className = "invalid-feedback";
-    hint.innerHTML = errorObject.errorMessage;
-    inputField.className += ' is-invalid';
+    if (errorObject.errorMessage !== ''){
+        let hint = document.createElement('div');
+        hint.className = "invalid-feedback";
+        hint.innerHTML = errorObject.errorMessage;
+        inputField.className += ' is-invalid';
+        inputField.addEventListener('click', removeError);
+        document.querySelector(divId).appendChild(hint);
+
+    }
     inputField.value = errorObject.input;
-    console.log(hint);
-    document.querySelector(divId).appendChild(hint);
+}
+
+const removeError = (event) => {
+    console.log(event.currentTarget);
+    let input = event.currentTarget;
+    let divId = '#div' + capitalize(input.id);
+    let div = document.querySelector(divId);
+    if (div.lastChild !== event.currentTarget) div.removeChild(div.lastChild);
+    input.className = input.className.replace(' is-invalid', '');
+    input.removeEventListener('click', removeError);
 }
 
 const capitalize = (s) =>

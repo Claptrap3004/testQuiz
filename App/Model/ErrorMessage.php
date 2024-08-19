@@ -20,4 +20,9 @@ enum ErrorMessage:string
 
     }
 
+    public function getNoErrorElement(string $input = ''):LoginRegisterErrorELement
+    {
+        return new LoginRegisterErrorELement($input);
+    }
+
 }

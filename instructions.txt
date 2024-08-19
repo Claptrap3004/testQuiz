@@ -1,0 +1,22 @@
+Docker Desktop starten
+in PHPStorm auf File->Project from Version Control klicken
+in das URL Feld folgende URL eingeben (am Besten nächste Zeile kopieren) :
+https://github.com/Claptrap3004/testQuiz.git
+Ordner für Projekt wählen
+in dem Projekt das Terminal öffnen (oder außerhalb von PHP Storm im Terminal in das Projekt Verzeichnis navigieren)
+docker-compose up --build eingeben -> das Docker image wird erstellt
+nach erfolgreichem build  (bei Docker-Desktop sollte ein Container erscheinen, der den Projektnamen trägt. In diesem Container läuft ein web und ein db container)
+ist der webserver unter localhost:30040 erreichbar
+es ist ein Standarduser (email: admin@mail.org, password : quizAdmin) angelegt.
+es sind noch keine Fragen vorhanden, sie müssen erst über import eingelesen werden. Hierzu muss auf Import/Export Data in der Menüleiste geklickt werden und dann import from CSV file gewählt werden.
+Es erscheint ein Datei-Auswahl Fenster in dem die Datei, aus der eingelesen werden soll, ausgewählt werden muss.
+Grundsätzlich hat das Tool noch einige Bugs, ist noch ein denglish-mix und css mäßig ist es auch stark verbesserungswürdig, aber für den Anfang sollte es reichen.
+Man kann sich (nach Einlesen der Daten) für Schnellstart mit entsprechender Anzahl oder für Quiz individuell entscheiden. Bei Individuell funktionert momentan aber auch nur die Auswahl der Kategorie(n)
+mit Wahl der Anzahl der Fragen.
+Fragen können erstellt bzw. editiert werden.(also ich hoffe, dass es dort nicht allzu viele Bugs gibt)
+Manchmal passiert es in der Docker-Anwendung, dass man zum Login zurückgeleitet wird, also scheinbar eine session - Fehlfunktion, die ich noch nicht bereinigen konnte. Aber wenn man wieder eingeloggt ist,
+kann man das Quiz an entsprechender Stelle fortsetzen. Die Handhabung sollte an sonsten rel. intuitiv sein, wenn nicht bin ich gerne für feedback offen. 
+Wenn man das Programm beendet hat, kann man auch die Docker-Container stoppen.
+Wenn man die Datenbank zurücksetzen möchte, kann man in dem Projektverzeichnis docker down -v eingeben (wenn der Container gestoppt ist). Beim nächsten container build ist die DB dann wieder nur mit dem
+admin user gefüllt, Fragen sind gelöscht.
+

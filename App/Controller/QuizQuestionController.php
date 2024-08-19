@@ -80,8 +80,6 @@ class QuizQuestionController extends Controller
             $selector = new QuestionSelector($preferUnperfect);
             $questions = $selector->select($numberOfQuestions, $categories);
         }
-        $json = json_encode($questions);
-        file_put_contents('test.log',$json,FILE_APPEND);
         $this->fillTables($questions);
     }
 

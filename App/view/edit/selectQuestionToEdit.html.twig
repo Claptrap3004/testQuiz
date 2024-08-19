@@ -1,0 +1,42 @@
+{% extends "base.html.twig" %}
+
+{% block title %} - select Questions{% endblock %}
+{% block head %}
+    <link href="/assets/css/selectQuestionToEdit.css" rel="stylesheet">
+    <script src="/assets/js/selectQuestionToEdit.js"></script>
+{% endblock %}
+{% block onload %}
+    initSelectQuestions();
+{% endblock %}
+{% block subtitle %}
+    Auswahl Fragen
+{% endblock %}
+{% block contentleft %}
+    <div id="jsDataQuestions" data-content="{{ jsData }}" hidden="hidden"></div>
+    <div id="showQuestions">
+    </div>
+{% endblock %}
+{% block contentright %}
+{% endblock %}
+{% block buttons %}
+    <table>
+        <tr  class="w-100">
+            <td class="w-50">
+                <div class="divBackToMain">
+                    <a href="quizQuestion/welcome" id="backToMain">
+                        <label class="btn-lg btn-primary">back</label>
+                    </a>
+                </div>
+            </td>
+            <td class="w-50">
+
+                <div class="divSelectQuestionToEdit">
+                    <a href="" id="selectQuestionToEdit">
+                        <label class="btn-lg btn-primary">edit selected question</label>
+                    </a>
+                </div>
+
+            </td>
+        </tr>
+    </table>
+{% endblock %}

@@ -1,0 +1,35 @@
+services:
+  web:
+    build: .
+    container_name: web
+    ports:
+      - "30040:80"
+      - "30043:443"
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - db
+    environment:
+
+      DB_HOST: db
+      DB_NAME: quiz
+      DB_USER: db
+      DB_PASSWORD: db
+
+  db:
+    image: mariadb:10.11
+    container_name: db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: db
+      MYSQL_PASSWORD: db
+      MYSQL_DATABASE: quiz
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./db-init:/docker-entrypoint-initdb.d/  # Alternativ zum Kopieren im Dockerfile
+
+volumes:
+  db_data:

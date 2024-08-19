@@ -1,0 +1,12 @@
+{
+    "require-dev": {
+        "phpunit/phpunit": "^10.5",
+        "mockery/mockery": "dev-main"
+    },
+    "require": {
+        "ext-pdo": "*",
+        "twig/twig": "^3.10",
+        "bk2k/bootstrap-package": "^7.0",
+        "symfony/asset": "^7.1"
+    }
+}

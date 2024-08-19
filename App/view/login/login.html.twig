@@ -1,0 +1,65 @@
+{% extends "base.html.twig" %}
+
+{% block title %} Login Quiz {% endblock %}
+{% block head %}
+    <link href="/assets/css/login.css" rel="stylesheet">
+    <script src="/assets/js/login.js"></script>
+{% endblock %}
+{% block onload %}
+    initLogin();
+{% endblock %}
+{% block subtitle %}
+    Herzlich Willkommen beim Quiz
+{% endblock %}
+{% block contentleft %}
+    <div id="jsLoginErrorData" data-content="{{ error|default }}" hidden="hidden"></div>
+    <div class="row mb-3">
+        <div class="col-1"></div>
+        <label for="inputUsername" class="col-3 col-form-label" id="labelInputUsername"
+               style="visibility: hidden">Username</label>
+        <div class="col-7" id="divInputUsername">
+            <input type="hidden" name='userName' class="form-control" id="inputUsername"
+                   placeholder="enter username">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-1"></div>
+        <label for="inputEmail" class="col-3 form-label" id="labelInputEmail">Email</label>
+        <div class="col-7" id="divInputEmail">
+            <input type="email" name='email' class="form-control" id="inputEmail" placeholder="enter email">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-1"></div>
+        <label for="inputEmailValidate" class="col-3 col-form-label" id="labelInputEmailValidate"
+               style="visibility: hidden">Email</label>
+        <div class="col-7" id="divInputEmailValidate">
+            <input type="hidden" name='emailValidate' class="form-control" id="inputEmailValidate"
+                   placeholder="repeat email">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-1"></div>
+        <label for="inputPassword" class="col-3 form-label" id="labelInputPassword">Password</label>
+        <div class="col-7" id="divInputPassword">
+            <input type="password" name='password' class="form-control" id="inputPassword" placeholder="enter password">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-1"></div>
+        <label for="inputPasswordValidate" class="col-3 col-form-label" id="labelInputPasswordValidate"
+               style="visibility: hidden">Password</label>
+        <div class="col-7" id="divInputPasswordValidate">
+            <input type="hidden" name='passwordValidate' class="form-control" id="inputPasswordValidate"
+                   placeholder="repeat password">
+        </div>
+    </div>
+{% endblock %}
+{% block buttons %}
+    <button type="Button" id="loginRegisterToggleButton" name="registerUser" class="btn btn-primary">go to Register
+    </button>
+    <button type="submit" id="loginRegisterConfirmButton" name="loginUser" class="btn btn-primary">Sign in</button>
+
+{% endblock %}
+
+

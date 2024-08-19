@@ -1,0 +1,34 @@
+{% extends "base.html.twig" %}
+
+{% block title %} Prüfe Fragen vor Beendung Quiz {% endblock %}
+{% block head %}
+    <link href="/assets/css/beforeFinal.css" rel="stylesheet">
+    <script src="assets/js/beforeFinal.js"></script>
+{% endblock %}
+{% block onload %}
+    initBeforeFinal();
+{% endblock %}
+{% block subtitle %}
+Übersicht beantwortete Fragen
+{% endblock %}
+{% block contentleft %}
+
+    <div id="jsBeforeFinalData" data-content="{{ questionsJS }}" hidden="hidden"></div>
+    <div class="row row-cols-5 text-center" id="beforeFinalButtons"></div>
+
+{% endblock %}
+{% block buttons %}
+                    <div class="col-lg-4 text-center">
+                        <a href="/quizQuestion/final?reset='true'">
+                            <label class="btn-lg btn-info shadow-sm">Fragen nochmals püfen
+                            </label>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 text-center">
+                        <a href="/quizQuestion/final?confirm='true'">
+                            <label class="btn-lg btn-info shadow-sm">Quiz auswerten
+                            </label>
+                        </a>
+                    </div>
+
+{% endblock %}

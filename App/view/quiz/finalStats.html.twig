@@ -1,0 +1,55 @@
+{% extends "base.html.twig" %}
+
+{% block title %} Auswertung Quiz {% endblock %}
+{% block head %}
+    <link href="/assets/css/finalStats.css" rel="stylesheet">
+    <script src="assets/js/finalStats.js"></script>
+{% endblock %}
+{% block onload %}
+    initFinalStats();
+{% endblock %}
+
+{% block subtitle %}
+    Auswertung Quiz
+{% endblock %}
+{% block contentleft %}
+    <div id="jsStatsData" data-content="{{ questionsJS }}" hidden="hidden"></div>
+    <div class="row row-cols-5 text-center" id="statsButtons"></div>
+
+{% endblock %}
+{% block contentright %}
+    <div class="card align-self-center bg-light rounded-3 m-1 my-5 py-3">
+        <div class="card-body rounded-3">
+            <h5 class="card-title">Statistic Quiz</h5>
+            <br>
+            <p class="card-text">Questions asked: <span id="finalStatsAsked"></span></p>
+            <p class="card-text">Questions answered correct: <span id="finalStatsRight"></span></p>
+            <p class="card-text">success rate: <span id="finalStatsRate"></span></p>
+        </div>
+    </div>
+    <div class="align-items-center text-center">
+        <a href="/index">
+            <label class="align-self-center btn btn-info shadow-sm">zurück zum Hauptmenü
+            </label>
+        </a>
+    </div>
+{% endblock %}
+{% block buttons %}
+    <div id="details" hidden="hidden">
+        <div class="row">
+        <h5 id="detailsQuestion">Question</h5>
+        </div>
+        <div class="row">
+            <div id="detailsAnswers" class="col-4 px-3">
+                <p></p>
+            </div>
+            <div class="col-6  px-3">
+                <p class="btn-outline-info" id="legende">Richtige Antworten zu der Frage sind grün, falsche rot.<br>
+                    Gewählte sind gelb
+                    hinterlegt</p>
+                <p></p>
+                <p id="detailsDescription"></p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

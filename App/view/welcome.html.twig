@@ -1,0 +1,74 @@
+{% extends "base.html.twig" %}
+{% block head %}
+    <link href="/assets/css/welcome.css" rel="stylesheet">
+    <script src="/assets/js/welcome.js"></script>
+{% endblock %}
+{% block title %} Herzlich Willkommen {% endblock %}
+{% block onload %}
+    initWelcome();
+{% endblock %}
+{% block subtitle %}
+    Hallo {{ user.username }}, herzlich Willlkommen zum Quiz
+{% endblock %}
+{% block contentleft %}
+
+    <div class="row row-cols-2 py-4 g-4">
+        <div class="col welcomeButton">
+            <a href="" id="quickstart20">
+                <label class="labelWelcomeButton btn btn-primary btn-block w-100 h-100">
+                    Schnellstart 20 Fragen alle Kategorien
+                </label>
+            </a>
+        </div>
+        <div class="col welcomeButton">
+            <a href="" id="quickstart50">
+                <label class="labelWelcomeButton btn btn-primary btn-block w-100 h-100">
+                    Schnellstart 50 Fragen alle Kategorien
+                </label>
+            </a>
+        </div>
+        <div class="col welcomeButton">
+            <a href="quizquestion/select/">
+                <label class="labelWelcomeButton btn btn-primary btn-block w-100 h-100">
+                    Quiz individuell erstellen
+                </label>
+            </a>
+        </div>
+
+        <div class="col welcomeButton">
+            <a href="edit/">
+                <label class="labelWelcomeButton btn btn-primary btn-block w-100 h-100">
+                    Fragen verwalten
+                </label>
+            </a>
+        </div>
+    </div>
+{% endblock %}
+    {% block contentright %}
+
+        <div class="card align-self-center bg-light rounded-3 mx-4 my-5 py-3">
+            <div class="card-body rounded-3">
+                <br>
+                <h5 class="card-title">Statistik von #{{ user.username }}</h5>
+                <br>
+                <br>
+                <p class="card-text"><span id="allTimesAsked">{{ stats.timesAsked }}</span> Fragen beantwortet</p>
+                <br>
+                <p class="card-text"><span id="allTimesRight">{{ stats.timesRight }}</span> davon korrekt</p>
+                <br>
+                <p class="card-text"><span  id="allRate">{{ stats.rate }}</span> % Erfolgsquote</p>
+
+                <label for="clearAllStatsButton"></label>
+                <button type="button" class="btn btn-info" id="clearAllStatsButton" data-bs-toggle="modal" data-bs-target="#modal">
+                    Clear all stats
+                </button>
+            </div>
+        </div>
+
+    {% endblock %}
+{% block buttons %}
+
+{% endblock %}
+{% block scripts %}
+
+{% endblock %}

@@ -1,0 +1,2185 @@
+Category,Question,Explanation,Answer,isRight,Answer,isRight,...
+"JavaScript Zertifikat","What expression will return true if 1. let shape1 = {x: 10, y: 20} and 1. let shape2 = {x: 10, y: 20} have the same
+property values?
+","Question: 1
+The [removed]shape1.x == shape2.x) && (shape1.y == shape2.y) checks whether the x and y properties of shape1 have
+the same values as the x and y properties of shape2, respectively. If both conditions are true, the expression returns
+true, indicating that shape1 and shape2 have the same property values.
+In the specific example provided, both objects have the same values for the x and y properties, so the expression will
+evaluate to true. However, note that this expression only checks for equality of the specific properties x and y, and does
+not check for equality of any additional properties that might exist in the objects.
+","shape1.x == shape2.y ",0,"(shape1.x == shape2.x) && (shape1.y == shape2.y) ",1,"shape1 == shape2 ",0,"Object.keys(shape1) === Object.keys(shape2) ",0
+"JavaScript Zertifikat","What is the output of the following JavaScript code?
+let num = 5; 
+let str = ""5""; 
+console.log(num === str); 
+","Question: 2
+The output of this code will be false. In JavaScript, the === operator performs a strict equality comparison. This means
+that not only do the values being compared need to be the same, but they must also have the same type. In this case,
+num is a number and str is a string. Even though they have the same value, they are different types, so the comparison
+returns false.
+",False,1,True,0,5,0,"""5""",0
+"JavaScript Zertifikat","How can you list all the keys of the object ""point""?
+","Question: 3
+You can list all the keys of the object ""point"" using one of the following methods:
+Using the Object.keys() method:
+let point = {x: 100, y: 200};
+let keys = Object.keys(point);
+console.log(keys); // [""x"", ""y""]
+This method returns an array of the object's own enumerable property names, which in this case are ""x"" and ""y"".
+Using a for...in loop:
+let point = {x: 100, y: 200};
+for (let key in point) {
+    console.log(key); // ""x"", ""y""
+}
+This method iterates over all the enumerable properties of an object, including its prototype chain. In this case, it will only
+print the own properties ""x"" and ""y"".
+Both methods will give you an array of the keys or print them to the console.
+","Object.keys(point) ",1,"point.listKeys() ",0,"point.list() ",0,"Not possible",0
+"JavaScript Zertifikat","What will be the result of executing the following code:
+let obj1 = {a: 1}; 
+let obj2 = {b: 2}; 
+let obj3 = Object.assign({c: 3}, obj1, obj2); 
+console.log(obj3); 
+","Question: 4
+The output of the following code will be:
+{c: 3, a: 1, b: 2}
+Explanation:
+Object.assign() is used to copy the values of all enumerable properties from one or more source objects to a target
+object. In this case, obj3 is the target object, and obj1 and obj2 are the source objects. The properties from the source
+objects are added to the target object in the order in which they appear in the arguments list. So in this case, the c
+property is added first, followed by the a and b properties. The resulting object has all three properties: c with a value of
+3, a with a value of 1, and b with a value of 2.
+","{a: 1, b: 2, c: 3} ",0,"{c: 3} ",0,"{c:3, a: 1, b: 2} ",1,"{a: 1} ",0
+"JavaScript Zertifikat","What will appear on the console after executing the following code?
+let book = { title: ""To Kill a Mockingbird"", author: ""Harper Lee"" }; 
+let library = Object.assign({}, book, {pages: 324}); 
+book.author = ""John Doe""; 
+console.log(`${library.title} by ${library.author}, ${library.pages} pages`); 
+","Question: 5
+This is because the library object was created by cloning the book object using Object.assign(), and adding a new
+property pages with a value of 324. Changing the author property of the book object after creating library has no effect
+on library, as it is a separate object with its own set of properties. 
+","To Kill a Mockingbird by Harper Lee, 324 pages",1,"undefined by John Doe, 324 pages ",0,"100 100 undefined ",0,"'To Kill a Mockingbird' by John Doe, 324 pages ",0
+"JavaScript Zertifikat","let shape = {x: 100, y: 100} 
+//insert line here 
+shape.show(); 
+What is the correct missing line in order for the console to show the following after running the whole code:
+100 100
+","Question: 6
+The correct line to insert is shape.show = function() { console.log(${this.x} ${this.y}); }; because it defines a new
+method called show on the shape object. This method uses the console.log() function to output the values of the x and y
+properties of the shape object. When the show method is called on the shape object, it will output the values of the x and
+y properties to the console, which in this case will be 100 100.
+","shape.show = function() { console.log(`${this.x} ${this.y}`); }; ",1,"point.show = () => console.log(${shape.x} ${shape.y}); ",0,"shape.show = () => console.log(${this.x} ${this.y}); ",0,"point.show = function(){console.log(${this.x} ${this.y})}; ",0
+"JavaScript Zertifikat","What is the correct way to access the height property in the building object
+{ name: ""Empire State Building"", height: 443.2 }
+","Question: 7
+To access the height property in the building object { name: ""Empire State Building"", height: 443.2 }, you can use dot
+notation as follows: 1. building.height This will return the value 443.2, which is the value assigned to the height property
+of the building object. 
+","building(""height"") ",0,"building.height ",1,"building[""height""] ",0,"building.height(); ",0
+"JavaScript Zertifikat","What is the correct way to check if a number is an integer in JavaScript? 
+","Question: 8
+In JavaScript, you can check if a number is an integer using the Number.isInteger() method. This method returns true if
+the passed value is an integer, otherwise it returns false. Here's an example:
+let num = 42;
+console.log(Number.isInteger(num)); // Output: true
+let floatNum = 42.5;
+console.log(Number.isInteger(floatNum)); // Output: false
+In addition, you can also check if a value is an integer using the modulo operator (%). If a number is divided by 1 and the
+remainder is 0, then it's an integer. Here's an example:
+let num = 42;
+console.log(num % 1 === 0); // Output: true 
+let floatNum = 42.5;
+console.log(floatNum % 1 === 0); // Output: false
+However, the Number.isInteger() method is the recommended way to check if a number is an integer because it is more
+precise and handles edge cases correctly.
+","Number.isNaN(number) ",0,"number.isInteger() ",0,"Math.ceil(number) === number ",0,"number % 1 === 0 ",1
+"JavaScript Zertifikat","What will appear on the console after executing the following code? 1. let shape1 = {x: 100, y: 200}; 2. let shape2 =
+shape1; 3. shape2.x = 0; 4. console.log(`${shape1.x} ${shape2.y}`);
+","Question: 9
+After executing the given code, the console will display the following output:
+0 200
+Here's how the code works:
+A new object shape1 is created with properties x and y set to 100 and 200, respectively.
+A new variable shape2 is declared and assigned the value of shape1. This means that both shape1 and shape2 now refer
+to the same object in memory.
+The x property of shape2 is set to 0.
+The values of shape1.x and shape2.y are output to the console. Since shape2.x was changed to 0 in step 3, the output
+will show 0 for the shape1.x property and 200 for the shape2.y property.
+Note that since shape1 and shape2 both refer to the same object, changing the value of a property on one object will also
+change it on the other object.
+","200 100 ",0,"0 100 ",0,"100 200 ",0,"0 200 ",1
+"JavaScript Zertifikat","What will be the value of foo after executing the following code:
+let obj = {a: 1}; 
+let foo = obj;
+obj.a = 2; 
+","Question: 10
+The value of foo will be a reference to the same object as obj. Therefore, after obj.a is changed to 2, foo.a will also be 2.
+","{a: 1} ",0,undefined,0,null,0,"{a: 2}",1
+"JavaScript Zertifikat","What is the correct way to define an object ""person"" with properties ""firstName"", ""lastName"", and ""age""?
+","Question: 11
+There are different ways to define an object ""person"" with properties ""firstName"", ""lastName"", and ""age"". Here is an
+example:
+Using object literal notation:
+let person = {
+  firstName: ""John"",
+  lastName: ""Doe"",
+  age: 30
+};
+This creates an object called ""person"" with three properties: ""firstName"" with a value of ""John"", ""lastName"" with a value
+of ""Doe"", and ""age"" with a value of 30.
+You can also create the object first and then add the properties using dot notation or bracket notation:
+let person = {};
+person.firstName = ""John"";
+person.lastName = ""Doe"";
+person.age = 30;
+Or:
+let person = {};
+person[""firstName""] = ""John"";
+person[""lastName""] = ""Doe"";
+person[""age""] = 30;
+Both of these ways will also create an object with the same properties and values. (note in this context const, let and var
+are interchangeable).
+","const person = {firstName: 'Jane', lastName: 'Doe', age: 30}; ",1,"const person = new Object('firstName' = 'Jane', 'lastName' = 'Doe', 'age' = 30);",0,"const person = {'firstName': 'Jane', 'lastName': 'Doe', 'age': 30};  ",0,"const person('firstName' = 'Jane', 'lastName' = 'Doe', 'age' = 30); ",0
+"JavaScript Zertifikat","What will appear on the console after executing the following code?
+let car = { model: ""Tesla"", year: 2022 }; 
+let vehicle = {...car, color: ""red""}; 
+car.year = 2021; 
+console.log(`${vehicle.model} ${vehicle.year} ${vehicle.color}`);
+","Question: 12
+Tesla 2022 red
+This is because we created a new object vehicle from the car object using the spread operator (...). We added a new
+property color with the value ""red"" to the vehicle object. When we changed the value of the year property in the car
+object to 2021, it did not affect the vehicle object. Therefore, the vehicle object still has the original values of model and
+year as ""Tesla"" and 2022 respectively, and color as ""red"".
+","Tesla 2021 red",0,"Tesla 2022 red",1,"Tesla 2021 blue",0,"Tesla 2022 black",0
+"JavaScript Zertifikat","What will be the value of ""point.x"" after executing the following code?
+let point = {x: 100, y: 200}; 
+let point2 = point; 
+point2.x = 0; 
+","Question: 13
+The value of ""point.x"" will be 0.
+In this code, the variable ""point"" is assigned an object with two properties ""x"" and ""y"". Then, a new variable ""point2"" is
+created and assigned the same object as ""point"". Since objects are reference types in JavaScript, both ""point"" and
+""point2"" now reference the same object in memory.
+When the code updates the value of the ""x"" property in ""point2"" to 0, it actually modifies the original object that ""point""
+also refers to. Therefore, when the value of ""point.x"" is accessed, it returns the updated value of 0.
+In other words, both ""point"" and ""point2"" refer to the same object in memory, so changes made to the object through one
+variable will be reflected in the other variable as well.
+",0,1,100,0,undefined,0,200,0
+"JavaScript Zertifikat","How can you list the values assigned to all properties of the person object
+{ name: ""Emily"", age: 25, city: ""New York"" }
+","Question: 14
+You can use the Object.values() method to extract an array of all values assigned to properties in the object
+ { name: ""Emily"", age: 25, city: ""New York"" }
+Here's an example code snippet:
+const person = { name: ""Emily"", age: 25, city: ""New York"" };
+const values = Object.values(person);
+console.log(values);
+This will output an array of values corresponding to the properties in the object:
+[ 'Emily', 25, 'New York' ] 
+","Object.values(person) ",1,"person.entries() ",0,"person.values() ",0,"person.keys() ",0
+"JavaScript Zertifikat","What is the correct way to access the name property in the person object
+ { ""name"": ""Jane Doe"" }? 
+","Question: 15
+To access the ""name"" property in the ""person"" object { ""name"": ""Jane Doe"" }, you can use dot notation as follows:
+person.name
+This will return the value of the ""name"" property, which in this case is ""Jane Doe"". Dot notation is used to access object
+properties in JavaScript when you know the property name in advance.
+Alternatively, you can use square bracket notation as follows: person[""name""]
+This will also return the value of the ""name"" property. Square bracket notation can be useful when you need to access
+object properties dynamically, for example, when the property name is stored in a variable or is the result of an
+expression.
+","person->name ",0,"person[name] ",0,name,0,"person[""name""] ",1
+"JavaScript Zertifikat","What will appear on the console after executing the following code?
+let point = {x: 100, y: 200}; 
+let point2 = {...point, z: 300}; 
+delete point.x; 
+console.log(${point.x} ${point2.x}); 
+","Question: 16
+The console will display the string ""undefined 100"".
+In this code, a new object called ""point2"" is created using the spread syntax ... to copy all properties of ""point"" and add a
+new property ""z"" with a value of 300. Then, the delete keyword is used to delete the ""x"" property from the ""point"" object.
+Finally, the console.log() method is used to log a string to the console that includes the values of ""point.x"" and ""point2.x"".
+Since ""point.x"" has been deleted, it is undefined, while ""point2.x"" still has a value of 100. Therefore, the output string is
+""undefined 100"".
+","null 100",0,"undefined 100",1,"undefined undefined",0,"100 undefined",0
+"JavaScript Zertifikat","What is the expression that will add a new property color with a value of ""red"" to the car object
+{ model: ""Tesla"", year: 2022 }
+","Question: 17
+The expression to add a new property color with a value of ""red"" to the car object
+{ model: ""Tesla"", year: 2022 } 
+is:
+car.color = ""red"";
+This will add the new property ""color"" with the value ""red"" to the car object. The resulting object will be:
+{ model: ""Tesla"", year: 2022, color: ""red"" } 
+","car.color = ""red"" ",1,"car[""color""][""red""] ",0,"car.property = ""color"", ""red"" ",0,"car.new(""color, ""red"") ",0
+"JavaScript Zertifikat","What is the output of the following code:
+let numbers = [1, 2, 3, 4]; 
+let newNumbers = numbers.map(function(number) { return number * 2; }); 
+console.log(newNumbers); 
+","Question: 18
+The output of the code will be:
+[2, 4, 6, 8]
+Explanation:
+The map() method creates a new array with the results of calling a provided function on every element in the original
+array. In this case, the provided function takes each number in the numbers array and multiplies it by 2, and the resulting
+array is assigned to the newNumbers variable. The resulting array, [2, 4, 6, 8], is then logged to the console.
+","[0, 2, 4, 6]",0,"[1, 4, 9, 16]",0,"[1, 2, 3, 4]",0,"[2, 4, 6, 8]",1
+"JavaScript Zertifikat","What will appear on the console after executing the following code?
+let animal = { species: ""dog"", breed: ""Labrador"" }; 
+let pet = {...animal, name: ""Buddy""}; 
+animal.species = ""cat""; 
+console.log(`${pet.species} ${pet.breed} ${pet.name}`);
+","Question: 19
+The console will log ""dog Labrador Buddy"".
+The spread operator {...animal} creates a new object pet with the properties of animal and adds the name property to it.
+Therefore, pet will have the values { species: ""dog"", breed: ""Labrador"", name: ""Buddy"" }.
+Changing the value of the species property of the animal object to ""cat"" does not affect the pet object because they are
+two separate objects.
+Therefore, pet.species will still have the value ""dog"", pet.breed will have the value ""Labrador"", and pet.name will have
+the value ""Buddy"".
+","dog Labrador undefined",0,"cat Labrador undefined",0,"cat Labrador Buddy",0,"dog Labrador Buddy",1
+"JavaScript Zertifikat","What is the correct way to access the value of property ""brand"" in object ""phone""?
+","Question: 20
+To access the value of property ""brand"" in object ""phone"", you can use dot notation or bracket notation. Here are the
+examples:
+Using dot notation:
+let phone = { brand: ""Apple"", model: ""iPhone"" };
+console.log(phone.brand); // Output: Apple
+Using bracket notation:
+let phone = { brand: ""Apple"", model: ""iPhone"" };
+console.log(phone[""brand""]); // Output: Apple
+Both of these ways are valid and will output the same result. Dot notation is used more commonly when the property
+name is a valid identifier name, while bracket notation is more flexible as it allows you to access properties with names
+that are not valid identifier names, such as properties with spaces or special characters.
+","phone->""brand""; ",0,"phone.getBrand(); ",0,phone[brand];,0,"phone.brand; ",1
+"JavaScript Zertifikat","Which of the following expressions returns true if the object ""point"" has a property ""x""?
+","Question: 21
+The expression ""x"" in point returns true if the object ""point"" has a property with the name ""x"".
+In JavaScript, the ""in"" operator is used to check whether a property exists in an object. It returns true if the specified
+property exists in the object and false otherwise.
+So, in this case, the expression ""x"" in point checks if the object ""point"" has a property named ""x"". If the object has such a
+property, the expression evaluates to true. If the object doesn't have a property named ""x"", the expression evaluates to
+false.
+Therefore, if the object ""point"" has a property named ""x"", the expression ""x"" in point will return true. If the object doesn't
+have a property named ""x"", the expression will return false.
+","x in point ",0,"""x"" in point ",1,"point.contains(x) ",0,"point.exists(x) ",0
+"JavaScript Zertifikat","What will be the value of x after the following code is executed?
+let x = 10; 
+function add5(num) {
+ num += 5; 
+ return num;
+} 
+x = add5(x); 
+","Question: 22
+The value of x will be 15 after the code is executed.
+The function add5 takes a number as an argument and adds 5 to it. The function is called with the variable x as the
+argument, which has the value of 10. The function returns the value 15, which is then assigned back to the variable x.
+Therefore, the value of x becomes 15.
+","None of the Above",0,10,0,15,1,5,0
+"JavaScript Zertifikat","What is the output of the following code?
+let object1 = { prop1: ""value1"" }; 
+let object2 = Object.create(object1); 
+object2.prop2 = ""value2""; 
+delete object2.prop1; 
+console.log(object2.prop1); 
+","Question: 23
+The output of the following code will be undefined.
+The code creates an object object1 with a property prop1 set to the string ""value1"". The object2 is then created as a new
+object which prototype is set to object1 using Object.create(). Then, object2 is assigned a new property prop2 with a
+value of ""value2"". Finally, the delete operator is used to remove the prop1 property from object2.
+Since prop1 is a property of the prototype of object2 (i.e., it belongs to object1), deleting it only removes it from object2,
+not from object1. Therefore, when we try to access object2.prop1, it returns undefined because object2 does not have its
+own prop1 property, and it is not found in the prototype chain either.
+","ReferenceError: prop1 is not defined ",0,undefined,1,null,0,"""value1"" ",0
+"JavaScript Zertifikat","What is the output of the following code?
+let obj1 = {a: 10, b: 20}; 
+let obj2 = Object.create(obj1); 
+obj2.c = 30; 
+console.log(obj2.a + "" "" + obj2.b + "" "" + obj2.c); 
+","Question: 24
+The output of the following code will be:
+10 20 30
+Explanation:
+obj1 is an object with properties a and b set to 10 and 20 respectively.
+obj2 is created using Object.create() method, with obj1 as its prototype. Therefore, obj2 inherits the properties of obj1.
+obj2 has a new property c set to 30.
+When console.log() is called, it outputs the values of obj2.a, obj2.b, and obj2.c, which are 10, 20, and 30 respectively.
+","undefined undefined 30",0,"10 20 undefined",0,"10 20 30",1,"undefined 20 30",0
+"JavaScript Zertifikat","What will be the output of the following JavaScript code?
+let x = 10; 
+let y = 20; 
+let z = 30; 
+let obj = {x, y, z}; 
+console.log(Object.keys(obj)); 
+","Question: 25
+The output of the code will be an array containing the keys of the object obj, which are ""x"", ""y"", and ""z"".
+So the output will be:
+[ ""x"", ""y"", ""z"" ]
+Explanation:
+Three variables x, y, and z are declared and initialized with values of 10, 20, and 30 respectively.
+An object obj is declared using object literal notation, with three properties x, y, and z that have the same names as the
+variables and the same values as the variables.
+Object.keys(obj) returns an array of the keys of the obj object, which are ""x"", ""y"", and ""z"".
+The console.log() statement outputs the array returned by Object.keys(obj) to the console.
+","[""x"", ""y"", ""z""]",1,"[""10"", ""20"", ""30""]",0,"[x, y, z]",0,"[10, 20, 30]",0
+"JavaScript Zertifikat","What will be the output of the following code?
+let arr = [1, 2, 3, 4]; 
+let arr2 = arr; 
+arr2.push(5); 
+console.log(arr); 
+","Question: 26
+The code initializes an array arr with the values [1, 2, 3, 4].
+Then, it assigns arr to arr2, which means arr2 is referencing the same array object as arr. They both point to the same
+memory location.
+Next, arr2.push(5) is called, which adds the value 5 to the end of the array referenced by both arr and arr2.
+Finally, console.log(arr) is executed, which outputs the content of arr. Since arr and arr2 are referencing the same array,
+the output will include the added element 5, resulting in [1, 2, 3, 4, 5].
+","[1, 2, 3, 4, 5, 5]",0,"[5, 1, 2, 3, 4]",0,"[1, 2, 3, 4]",0,"[1, 2, 3, 4, 5]",1
+"JavaScript Zertifikat","What is the value of property ""z"" after executing the following code?
+let obj = {x: 100, y: 200}; 
+let obj2 = Object.create(obj); 
+obj2.z = 300; 
+","Question: 27
+The value of property ""z"" in ""obj2"" will be 300.
+This code creates a new object called ""obj"" with properties ""x"" and ""y"". Then, a new object called ""obj2"" is created using
+Object.create() and ""obj"" is passed as the prototype object. This means that ""obj2"" inherits the properties of ""obj"", which
+in this case are ""x"" and ""y"".
+Finally, a new property ""z"" is added to ""obj2"" with a value of 300. Therefore, the value of ""z"" in ""obj2"" is 300.
+",100,0,200,0,undefined,0,300,1
+"JavaScript Zertifikat","What will be the value of obj.property after the following code is executed?
+let obj = {property: 10};
+function add5(o) {
+  o.property += 5;
+ return o;
+}
+obj = add5(obj);
+","Question: 28
+After executing the above code, the value of obj.property will be 15.
+The add5 function takes an object as an argument, accesses its property property, and adds 5 to it. The modified object
+is then returned from the function.
+In the last line of code, the add5 function is called with obj as its argument. The modified object is then assigned back to
+the obj variable. Therefore, obj.property will have a value of 15.
+",15,1,"None of the Above",0,5,0,10,0
+"JavaScript Zertifikat","What is the output of the following JavaScript code?
+let obj = {a: 1, b: 2};
+let clone = Object.assign({}, obj); 
+clone.a = 3; 
+console.log(obj.a, clone.a); 
+","Question: 29
+The output of the code will be 1 3.
+Explanation:
+An object obj is declared with two properties a and b with values of 1 and 2, respectively.
+A new object clone is created using Object.assign(), which creates a shallow copy of the obj object by copying its
+enumerable own properties into the new object.
+The clone.a = 3 statement modifies the value of the a property in the clone object to 3.
+The console.log() statement outputs the value of the a property in both the obj and clone objects to the console. Since
+obj.a was not modified, its value is still 1, while clone.a was modified to 3.
+","1 3",1,"3 1",0,"1 1",0,"3 3",0
+"JavaScript Zertifikat","What is the expression that will check if the key age is present in the person object
+{ name: ""John Smith"", age: 32 }
+","Question: 30
+To check if the key ""age"" is present in the object { name: ""John Smith"", age: 32 }, you can use the ""in"" operator as
+follows:
+""age"" in { name: ""John Smith"", age: 32 }
+This will return true if the ""age"" key is present in the object, and false otherwise.
+","age in person ",0,"person.contains(age) ",0,"age.in(person) ",0,"""age"" in person ",1
+"JavaScript Zertifikat","What is the value of ""z"" after executing the following code?
+let point = {x: 100, y: 200}; 
+let point2 = Object.create(point); 
+point2.z = 300; 
+","Question: 31
+The value of ""z"" in ""point2"" will be 300.
+In this code, a new object called ""point"" is created with two properties ""x"" and ""y"". Then, a new object called ""point2"" is
+created using the Object.create() method, with ""point"" as its prototype.
+When the code adds a new property ""z"" to ""point2"" with a value of 300, it creates a new property in the ""point2"" object,
+which is not present in the ""point"" object. Therefore, the value of ""z"" in ""point2"" is 300, while ""point"" still only has the ""x""
+and ""y"" properties.
+
+",300,1,100,0,null,0,undefined,0
+"JavaScript Zertifikat","What is the correct way to add property ""z"" to object ""point"" with value 300?
+","Question: 32
+To add the property ""z"" with the value 300 to the ""point"" object, you can use either dot notation or square bracket
+notation as follows:
+Using dot notation:
+point.z = 300;
+Using square bracket notation:
+point[""z""] = 300;
+Both of these approaches will add a new property ""z"" with the value 300 to the ""point"" object. Dot notation is typically
+used when the property name is known in advance, whereas square bracket notation is used when the property name is
+determined at runtime or when it contains special characters or spaces.
+","point.push({z: 300}); ",0,"point.z = 300 ",1,"point += {z: 300}; ",0,"Object.defineProperties(point, {z: 300}); ",0
+"JavaScript Zertifikat","What is the value of property ""y"" in object ""point2"" after the following code is executed?
+let point = {x: 100, y: 200}; 
+let point2 = {...point}; 
+point2.y = 300; 
+","Question: 33
+The value of property ""y"" in object ""point2"" will be 300.
+The code first declares an object called ""point"" with two properties ""x"" and ""y"", and then creates a new object called
+""point2"" using the spread operator to copy all the properties from ""point"".
+Then, the code updates the value of the ""y"" property in ""point2"" to 300. This change only affects the ""y"" property in
+""point2"" and does not affect the original object ""point"".
+Therefore, after the code is executed, the value of the ""y"" property in ""point2"" is 300, while the value of the ""y"" property
+in the original object ""point"" remains unchanged at 200.
+",undefined,0,100,0,300,1,200,0
+"JavaScript Zertifikat","What should be the declaration of the ""point"" object so that when you call ""console.log(point.x)"", the value of x appears
+in the console?
+","Question: 34
+The answer is
+let point = {x: 10};
+because it declares a JavaScript object called ""point"" with a property called ""x"" whose value is 10. When you call
+""console.log(point.x)"", the value of ""x"" (which is 10) will be printed to the console.
+In JavaScript, objects are created using curly braces {} and are made up of key-value pairs, where the key is a string that
+acts as a unique identifier for the value it holds. In this case, the key is ""x"" and the value is 10.
+When you access a property of an object using dot notation (e.g., point.x), JavaScript looks up the key (in this case, ""x"")
+in the object and returns the corresponding value (in this case, 10). Calling ""console.log(point.x)"" thus prints the value of
+""x"" (which is 10) to the console.
+","let x = 10; ",0,"let point.add(x, 10) ",0,"let point = (x: 10);",0,"let point = {x: 10}; ",1
+"JavaScript Zertifikat","What will appear on the console after executing the following code?
+let phone = { brand: ""Apple"", model: ""iPhone"" }; 
+let cell = phone; 
+cell.model = ""Samsung""; 
+console.log(`${phone.brand} ${phone.model}`); 
+
+","Question: 35
+The output on the console will be:
+Apple Samsung
+This is because the code declares an object called ""phone"" with two properties ""brand"" and ""model"". It then creates a
+new variable called ""cell"" and assigns it the same object as ""phone"" (i.e., they both refer to the same object in memory).
+When the code updates the ""model"" property of ""cell"" to ""Samsung"", it actually modifies the original object that ""phone""
+also refers to. Therefore, when the code prints the ""brand"" and ""model"" properties of ""phone"" using console.log, it will
+show the updated value of ""model"", which is ""Samsung"".
+","Apple IPhone",0,"Samsung Samsung",0,"Samsung IPhone",0,"Apple Samsung",1
+"JavaScript Zertifikat","How can you check if the object ""point"" is frozen?
+","Question: 36
+This code first checks if the object ""point"" is frozen using the Object.isFrozen() method. If the method returns true, the
+console will log the string ""point is frozen"". Otherwise, if the method returns false, the console will log the string ""point is
+not frozen"".
+","Object.freeze(point) === true ",0,"point.isFreeze() ",0,point.isFrozen(),0,"Object.isFrozen(point) ",1
+"JavaScript Zertifikat","What will be the output of the following code?
+let point = {x: 100, y: 100}; 
+let point2 = Object.assign({}, point, {x: 0, z: 300}); 
+console.log(${point2.x} ${point2.y} ${point2.z}); 
+","Question: 37
+The console will display the string ""0 100 300"".
+In this code, a new object called ""point2"" is created using the Object.assign() method. The first argument is an empty
+object, and the subsequent arguments are the objects to be merged into the first object.
+In this case, ""point"" is the second argument, which means that all its properties are copied into the new object. Then, the
+third argument {x: 0, z: 300} is merged into the new object, overwriting the value of ""x"" to 0 and adding the new
+property ""z"" with a value of 300.
+Finally, the console.log() method is used to log a string to the console that includes the values of ""point2.x"", ""point2.y"",
+and ""point2.z"". The output string is ""0 100 300"", because ""point2.x"" has been changed to 0, while ""point2.y"" and
+""point2.z"" have been added with their respective values.
+","100 0 300",0,"0 100 300",1,"100 200 undefined",0,"100 200 300",0
+"JavaScript Zertifikat","What will appear on the console after executing the following code?
+let point = {x: 100, y: 200}; 
+let point2 = Object.assign({}, point); 
+point2.x = 0; 
+console.log(${point.x} ${point2.x}); 
+","Question: 38
+The console will display the string ""100 0"".
+In this code, a new object called ""point2"" is created by using the Object.assign() method to copy all the properties of
+""point"" into a new empty object.
+Then, the value of the ""x"" property in ""point2"" is updated to 0. This change only affects the ""x"" property in ""point2"" and
+does not affect the original object ""point"".
+Finally, the console.log() method is used to log a string to the console that includes the values of ""point.x"" and ""point2.x"".
+Since ""point.x"" has a value of 100 and ""point2.x"" has a value of 0, the string ""100 0"" will be logged to the console.
+","0 0",0,"0 100",0,"100 100",0,"100 0",1
+"JavaScript Zertifikat","What will appear on the console after executing the following code?
+let shape = {x: 100, y: 100}; 
+let shape2 = Object.assign({}, shape, {x: 0, z: 200});
+shape.y = 0;
+console.log(`${shape2.x} ${shape2.y} ${shape2.z}`); 
+","Question: 39
+After executing the given code, the console will display the following output:
+0 100 200
+Here's how the code works:
+A new object shape is created with properties x and y set to 100.
+A new object shape2 is created using Object.assign(). The first argument {} specifies the target object to which
+properties will be assigned (in this case, a new empty object). The second argument shape specifies the source object
+from which properties will be copied. The third argument {x: 0, z: 200} specifies additional properties to add or
+overwrite. The resulting object has properties x, y, and z set to 0, 100, and 200, respectively.
+The value of the y property of shape is set to 0.
+The values of shape2.x, shape2.y, and shape2.z are output to the console. Since shape2.x and shape2.z were set to 0
+and 200 in step 2, respectively, the output will show 0 for shape2.x and 200 for shape2.z. Since shape2.y was not
+modified in the subsequent steps, it retains its original value of 100.
+Note that the Object.assign() method creates a new object, and does not modify the original shape object or any other
+objects used as arguments.
+","100 100 200",0,"0 0 200",0,"0 100 200",1,"100 0 200",0
+"JavaScript Zertifikat","What will appear on the console after executing the following code?
+let shape = {x: 100, y: 100}; 
+let shape2 = {...shape, z: 300}; 
+shape.x = 0; 
+console.log(`${shape2.x} ${shape2.y} ${shape2.z}`); 
+","Question: 40
+The code will output 100 100 300 on the console.
+This is because the spread syntax (...) is used to create a new object shape2 that inherits the properties of shape (i.e., x
+and y) and adds a new property z with a value of 300. Even though the value of x in shape is changed to 0, it does not
+affect the value of x in shape2 which is still 100. So, when console.log is called, it outputs the values of shape2.x,
+shape2.y, and shape2.z, which are 100, 100, and 300, respectively.
+","100 100 300",1,"0 100 300",0,"200 100 300",0,"300 100 300",0
+"JavaScript Zertifikat","What will appear in the console as a result of executing the following code snippet?
+class Person{} 
+class Employee extends Person{}
+class Manager extends Employee{} 
+let manager = new Manager(); 
+console.log(`${manager instanceof Person} ${manager instanceof Employee} ${manager instanceof Manager}`); 
+","Question: 41
+The following will appear in the console as a result of executing the code snippet:
+true true true
+This is because Manager is a subclass of Employee, which is a subclass of Person. Therefore, manager is an instance of all
+three classes: Person, Employee, and Manager. The instanceof operator checks if an object is an instance of a given
+class, including subclasses.
+","true true true",1,"false true false",0,"true false false",0,"false false false",0
+"JavaScript Zertifikat","What is the output of the following code snippet?
+class Animal {}; 
+class Dog extends Animal {}; 
+let dog = new Dog(); 
+console.log(dog instanceof Animal); 
+","Question: 42
+The output of the following code snippet is:
+true
+Explanation:
+The Dog class extends the Animal class, which means that it inherits all of its properties and methods. When an instance
+of Dog is created using the new operator, it is also an instance of Animal, since it inherits from it. Therefore, dog
+instanceof Animal returns true.
+",Dog,0,Animal,0,True,1,False,0
+"JavaScript Zertifikat","What is the output of the following code snippet?
+class Shape{}; 
+class Pyramid extends Shape{}; 
+class SquareBasedPyramid extends Pyramid {}; 
+let shape = new SquareBasedPyramid (); 
+console.log(`${shapeinstance of Shape} ${shape instance of Pyramid } ${shape instance of SquareBasedPyramid }`) 
+","Question: 43
+Output:
+true true true
+The output indicates that shape is an instance of all three classes: Shape, Pyramid, and SquareBasedPyramid. This is
+because SquareBasedPyramid inherits from Pyramid, which in turn inherits from Shape.
+","true true true",1,"false false true",0,"true false true",0,"false false false",0
+"JavaScript Zertifikat","There is one line missing in the code below:
+class A { 
+_x = 0; 
+// Insert line of code here
+} 
+let a = new A(); 
+a.x = 10; 
+console.log(a._x); 
+Select the correct missing line so that the executed code results in the following console output: 10
+","Question: 44
+The missing line of code is
+set x(value) { this._x = value; }
+This is because when the line ""a.x = 10"" is executed, it invokes the ""set x"" method, which sets the value of ""_x"" to the
+passed value of ""10"". The underscore in front of ""_x"" indicates that it is a private variable, which means that it can only
+be accessed within the class. Therefore, in order to set its value from outside the class, we need to use the ""set x""
+method. Finally, when the console.log statement is executed, it outputs the value of ""_x"", which has been set to 10.
+","x() { return this._x; } ",0,"get x() { return this._x; } ",0,"this.x = function() { return this._x; } ",0,"set x(value) { this._x = value; } ",1
+"JavaScript Zertifikat"," What is the correct syntax for creating a ""User"" object with the name ""John"" and role ""Admin""? (note no
+previous class has been defined)","Question 45: There are different ways to create objects in JavaScript, but one possible way to create a ""User"" object with the name
+""John"" and role ""Admin"" without defining a class is by using an object literal notation, like this:
+let User = {   name: ""John"",   role: ""Admin"" }; 
+This creates a new object with two properties: ""name"" with the value ""John"" and ""role"" with the value ""Admin"".
+","let User = {name: ""John"", role: ""Admin""}",1,"User = new User(""John"", ""Admin""); ",0,"new User(""John"", ""Admin""); ",0,"User(""John"", ""Admin""); ",0
+"JavaScript Zertifikat","What is the correct code for declaring a class Shape that has a method calculateArea and a private property _sides which
+can be set in the constructor?
+","Question: 46
+The code is correct for declaring a class Shape that has a method calculateArea and a private property _sides which can
+be set in the constructor.
+In the constructor, the private property _sides is declared with the this keyword, which means it can be accessed within
+the class. The underscore before the property name is a convention used to indicate that it should not be accessed from
+outside the class.
+The calculateArea method is declared outside of the constructor using the standard method syntax. This means it is a
+public method that can be called from outside the class.
+Overall, this code follows best practices for declaring private properties and public methods in a class in JavaScript.
+","class Shape {  constructor(sides) {  sides = sides;  }  calculateArea() {  // implementation  } } ",0,"class Shape {  constructor(sides) {  this.sides = sides;  } calculateArea() {  // implementation  } } ",0,"class Shape {  calculateArea()  {  // implementation  }  constructor(sides) {  _sides = sides;  } } ",0,"class Shape {  constructor(sides) { this._sides = sides;  }  calculateArea()  {  // implementation  } } ",1
+"JavaScript Zertifikat","A class may have a constructor called...
+","Question: 47
+A class may have a constructor called constructor(). The constructor is a special method that is executed when a new
+instance of the class is created, and it can be used to initialize the properties of the class. It is defined using the
+constructor keyword followed by parentheses and the method body. The constructor can accept parameters, which can
+be used to set the initial values of the properties of the class.
+",constructor,1,"Name of the class",0,"constructor ""name""",0,"this ",0
+"JavaScript Zertifikat","What line of code should be inserted into the A class definition to declare a property named test and initialize it with the
+value 10?
+class A {
+ // insert code here 
+} 
+
+","Question: 48
+The line of code to insert in the A class definition to declare a property named test and initialize it with the value 10 is:
+class A {
+  test = 10;
+} 
+","test = 10; ",1,"this.test = 10; ",0,"var test = 10; ",0,"let test = 10; ",0
+"JavaScript Zertifikat","A static method defined in a class is...
+","Question: 49
+A static method defined in a class is bound to the class only and will not be available in any objects which are instances
+of it because a static method belongs to the class itself, rather than to any instance of the class. This means that it can
+be called on the class directly, without the need for an instance of the class to be created.
+Since a static method belongs to the class and not to its instances, it cannot access any instance-specific properties or
+methods. It can only access static properties or other static methods that belong to the same class.
+In summary, static methods in a class are designed to provide functionality that is specific to the class, rather than to any
+of its instances.
+","Is available only in class instances",0,"Is bound to the class only will not be available in any objects which are instances from it.",1,"Available for both the class and instances of the class",0,"Is only available within the class",0
+"JavaScript Zertifikat","JavaScript classes are first-class citizens, which means that...
+","Question: 50
+JavaScript classes are first-class citizens, which means that they can be passed as arguments to functions, returned from
+functions, assigned to variables, and stored in data structures just like any other value or object. This makes classes very
+flexible and powerful in JavaScript, as they can be used to create complex data structures, modularize code, and provide
+an object-oriented programming paradigm.
+","Classes take memory priority",0,"Classes must be declared at the beginning of the code",0,"Classes are the most important components of the language",0,"Classes can be written to variables, among other things.",1
+"JavaScript Zertifikat","What is the correct code to declare a class ""Rectangle"" with a constructor that takes two arguments ""width"" and ""height"",
+and a method ""calcArea"" that calculates and returns the area of the Rectangle instance?
+","Question: 51
+This code is the correct way to declare a class Rectangle. It has a constructor that takes two arguments, width and
+height, and sets the corresponding properties on the instance. The class also has a method calcArea that calculates and
+returns the area of the rectangle instance by multiplying its width and height.
+Overall, this code follows the conventions and best practices of class declaration in JavaScript, and provides a clear and
+straightforward implementation of a Rectangle class with a method to calculate its area.
+","class Rectangle { constructor(width, height) { this.width = width; this.height = height; } calcArea() { return
+this.width * this.height; }}",1,"class Rectangle { constructor(width, height); this.width = width; this.height = height; calcArea() { return width * height; } }",0,"class Rectangle(width, height) { this.width = width; this.height = height; this.calcArea = function() { return
+this.width * this.height; } }",0,"function Rectangle(width, height) { this.width = width; this.height = height; this.calcArea = function() { return
+this.width * this.height; } }",0
+"JavaScript Zertifikat","What line of code should be inserted into the Person class definition to add a method greet to the class that outputs
+""Hello, I am [name]""?
+class Person { constructor(name)
+ { 
+  this.name = name; 
+  // insert code here 
+ } 
+} 
+","Question: 52
+The code
+this.greet = function() { console.log(Hello, I am ${this.name}); }
+should be inserted into the Person class definition to add a method greet to the class that outputs ""Hello, I am [name]"".
+This line of code defines a method called greet on each instance of the Person class. When called, the method logs a
+message to the console that includes the name of the person instance. By using the this keyword, the method has access
+to the name property of the instance on which it is called.
+","greet: function() { console.log(Hello, I am ${this.name}); } ",0,"greet() { console.log(Hello, I am ${this.name}); } ",0,"this.greet = function() { console.log(Hello, I am ${this.name}); }",1,"function greet() { console.log(Hello, I am ${this.name}); } ",0
+"JavaScript Zertifikat","What is the correct syntax for creating an instance of the class Vehicle with the property make set to ""Toyota""?(assuming
+there's no constructor)
+","Question: 53
+Assuming the class Vehicle has a property named make, the correct syntax for creating an instance of the class with the
+property make set to ""Toyota"" is:
+let vehicle = new Vehicle(); vehicle.make = ""Toyota"";
+","Vehicle car = new Vehicle(""Toyota"");",0,"Vehicle(""Toyota""); ",0,"let car = new Vehicle; car.make = ""Toyota"";",1,"let car = new Vehicle(""Toyota"");",0
+"JavaScript Zertifikat","What line of code should be inserted into the Product class definition to add a property price to the class?
+class Product { 
+ constructor(name) 
+ { 
+   this.name = name; 
+   // insert code here 
+ }
+}
+","Question: 54
+To add a property price to the Product class, the following line of code can be inserted:
+this.price = 0;
+This will initialize the price property to 0.  It's also worth noting that the constructor function can also accept a price
+parameter and assign its value to the price property. The code can look like this:
+class Product { 
+ constructor(name, price) { 
+   this.name = name; 
+   this.price = price || 0; 
+ }
+}
+This code will initialize the price property to the value of the price parameter, or to 0 if the price parameter is not
+provided.
+","price: 0;",0,"this.price = 0;",1,"var price = 0;",0,"let price = 0;",0
+"JavaScript Zertifikat","Which line of code should be inserted in the following code snippet to declare a method showInfo in class A that displays
+the string ""Hi"" in the console?
+class A { 
+ constructor(){
+  // insert line of code here 
+ }
+} 
+let a = new A();
+a.showInfo(); 
+","Question: 55
+To declare a method showInfo in class A that displays the string ""Hi"" in the console, the following line of code can be
+inserted inside the constructor:
+this.showInfo = function() {
+  console.log(""Hi"");
+};
+So the updated code will be:
+class A {
+  constructor(){
+    this.showInfo = function() {
+      console.log(""Hi"");
+    };
+  }
+} 
+let a = new A();
+a.showInfo()
+","showInfo = function() {console.log(""Hi"");}; ",0,"this.showInfo = function() {console.log(""Hi"");}; ",1,"static showInfo() {console.log(""Hi"");}; ",0,"function showInfo() {console.log(""Hi"");}; ",0
+"JavaScript Zertifikat","Analyze the following code:
+class Shape { 
+ #x = 0; 
+ #y = 0; 
+ sides= 3; 
+} 
+let shape = new Shape(); 
+console.log(Object.keys(shape));
+","Question: 56
+The code defines a class Shape with two private properties #x and #y initialized to 0, and a public property sides
+initialized to 3. It then creates a new instance of the Shape class and logs the keys of the object using Object.keys().
+Since #x and #y are private properties, they are not enumerable and therefore not included in the output of
+Object.keys(). Only the public property sides will be included in the output.
+Therefore, the output of the code will be an array containing the single element ""sides"".
+",[],0,"[""x"", ""y""]",0,"[""sides""]",1,"[""x"", ""y"", ""sides""]",0
+"JavaScript Zertifikat","What will be the result of the code below?
+class A { 
+ _test = 0; 
+ set test(value) {
+ this._test = value; 
+ } 
+}
+let a = new A(); 
+a.test = 10; 
+console.log(a._test); 
+","Question: 57
+The code will output 10 in the console.
+This is because the code defines a class A with a private property _test and a setter method test that sets the value of
+_test. Then it creates an instance a of class A and sets its test property to 10. Since the test property is a setter method,
+it sets the value of the private property _test to 10. Finally, the code logs the value of _test (which has been set to 10) to
+the console using console.log(a._test);.
+","ReferenceError: a is not defined ",0,"Error: a.test is not a function ",0,10,1,undefined,0
+"JavaScript Zertifikat","What line of code should be inserted in the class A definition to produce the output ""Hi"" when the code is executed?
+class A 
+{ 
+  //Insert line of code here 
+} 
+let a = new A(); 
+a.showInfo();
+","Question: 58
+The line showInfo = function() { console.log(""Hi""); }; should be inserted in the class A definition to produce the output
+""Hi"" when the code is executed because it creates a method called showInfo on instances of the class A. When
+a.showInfo() is called, it will execute the function that was assigned to the showInfo property of a.
+Note that since showInfo is not declared with let, const, or var, it is created as a global variable. To avoid polluting the
+global namespace, it's recommended to use this.showInfo = function() { console.log(""Hi""); }; instead, which creates
+","showInfo: function() { console.log(""Hi""); }; ",0,"showInfo() { console.log(""Hi""); };",1,"function showInfo() { console.log(""Hi""); }; ",0,"showInfo = function() { console(""Hi""); }; ",0,"showInfo as a method on instances of the class ",0
+"JavaScript Zertifikat","What will appear in the console as a result of executing the following code snippet?
+class A { 
+ _test = 0; 
+ set test(value) { 
+  this._test = value; 
+ } 
+} 
+let a = new A(); 
+a.test = 10; 
+console.log(a._test);
+","Question: 59
+The output in the console will be:
+10
+Explanation:
+The code defines a class A with a private property _test and a setter method test that sets the value of _test to the
+provided value. The let a = new A(); statement creates a new instance of A and assigns it to the variable a. The a.test =
+10; statement calls the test setter method and sets the value of _test to 10. Finally, the console.log(a._test); statement
+outputs the value of _test which is 10.
+Note that accessing a private property such as _test directly outside of the class is generally not recommended, as it
+violates encapsulation principles. In this case, it would be better to define a public getter method in the class to access
+the value of _test.
+",10,1,undefined,0,NaN,0,null,0
+"JavaScript Zertifikat","What is the output of the following code snippet?
+class Book {}; 
+class Magazine extends Book {}; 
+let article = new Magazine(); 
+console.log(article instanceof Book); 
+","Question: 60
+The output of the following code snippet will be true.
+Explanation:
+A class Book is defined.
+A class Magazine is defined which extends Book.
+An object article is created as an instance of the Magazine class.
+The instanceof operator checks if the article object is an instance of the Book class. Since Magazine extends Book, article
+is considered an instance of Book and the output will be true.
+",False,0,Magazine,0,True,1,Book,0
+"JavaScript Zertifikat","What will be the output of the following code?
+class Rectangle {
+ _width = 0;
+ _height = 0;
+ set width(value) {
+  this._width = value;
+ }
+ get width() {
+  return this._width;
+ }
+ set height(value) {
+  this._height = value;
+ }
+ get height() {
+  return this._height;
+ }
+}
+let rectangle = new Rectangle();
+rectangle.width = 10;
+rectangle.height = 5; 
+console.log(rectangle.width * rectangle.height); 
+","Question: 61
+The output of the following code will be 50.
+Explanation:
+The code defines a class Rectangle with private properties _width and _height and setters and getters for them.
+Then, an instance of Rectangle is created and its width and height properties are set to 10 and 5, respectively.
+Finally, the product of rectangle.width and rectangle.height is logged to the console, which is 10 * 5 = 50.
+",50,1,5,0,10,0,0,0
+"JavaScript Zertifikat","What is the output of the following code snippet?
+class Rectangle {}; 
+let square = new Rectangle(); 
+console.log(square instanceof Rectangle); 
+","Question: 62
+The output of the following code snippet will be true.
+Explanation:
+A class Rectangle is defined.
+A new instance of Rectangle is created using the new keyword and assigned to the variable square.
+The instanceof operator is used to check if square is an instance of Rectangle.
+Since square is created using the Rectangle class, the output will be true.
+",True,1,Rectangle,0,square,0,False,0
+"JavaScript Zertifikat","What line of code should be inserted into the Car class definition to add a method drive to the class that outputs ""Driving
+[make] [model]""?
+class Car { 
+ constructor(make, model) 
+ { 
+  this.make = make; 
+  this.model = model; 
+  // insert code here 
+ } 
+} 
+","Question: 63
+The line of code that should be inserted into the Car class definition to add a method drive to the class that outputs
+""Driving [make] [model]"" is:
+this.drive() { console.log(`Driving ${this.make} ${this.model}`); }
+This adds a method drive to the Car class that outputs the make and model of the car being driven.
+","function drive() { console.log(`Driving ${this.make} ${this.model}`); } ",0,"drive() { console.log(`Driving ${this.make} ${this.model}`); } ",0,"this.drive = function() { console.log(`Driving ${this.make} ${this.model}`); } ",1,"drive: function() { console.log(`Driving ${this.make} ${this.model}`); } ",0
+"JavaScript Zertifikat","Analyze the following code:
+class Point { 
+ constructor(x, y) 
+ { 
+  this.x = x; 
+  this.y = y; 
+ } 
+ setColor(color) { 
+  this.color = color; 
+ } 
+} 
+let point = new Point(0, 200); 
+point.setColor(""red"");
+What properties does ""point"" have?
+","Question: 64
+The ""point"" object is created by the constructor function of the class ""Point"" and is initialized with two properties, ""x"" and
+""y"", which are assigned the values passed as arguments (0 and 200, respectively) when the object is created.
+Then the ""setColor"" method is called on the ""point"" object with the argument ""red"", which adds a new property ""color"" to
+the ""point"" object and assigns it the value ""red"". Therefore, after the ""setColor"" method is called, the ""point"" object has
+three properties: ""x"", ""y"", and ""color"", with their respective values of 0, 200, and ""red"".
+",color,0,"x, y, color",1,"x, y",0,"None of the Above",0
+"JavaScript Zertifikat","In the following code snippet, what line of code should be inserted to declare a method named showInfo that outputs the
+string ""Hi"" to the console?
+class A {
+ // insert code here
+}
+let a = new A();
+console.log(a.showInfo()); 
+","Question: 65
+The line of code that should be inserted to declare a method named showInfo that outputs the string ""Hi"" to the console
+is:
+showInfo = function() { return ""Hi""; } 
+Note that the showInfo() method should be declared within the class A so that instances of the class have access to it.
+The method can then be called on an instance of A, which in this case is a.
+","let showInfo = function() { console.log(""Hi""); } ",0,"showInfo = function() { return ""Hi""; } ",1,"showInfo() { return ""Hi""; } ",0,"function showInfo() { return ""Hi""; } ",0
+"JavaScript Zertifikat","If, if in the declaration of class B, you want it to inherit from A. You would write...
+","Question: 66
+To make class B inherit from class A, you would use the extends keyword followed by the parent class name in the class
+declaration. Here is an example:
+class A {
+  // ...
+}
+class B extends A {
+  // ...
+}
+","class B inherits A ",0,"class B extends A ",1,"class A inherits A ",0,"class A inherits B ",0,"In this example, class B extends class A, meaning that it inherits all of the properties and methods of class ",0
+"JavaScript Zertifikat","What will be the output of the following code:
+class Circle { 
+ _radius = 0; 
+ set radius(value) { 
+  this._radius = value; 
+ } 
+ get radius() { 
+  return this._radius; 
+ } 
+}
+let circle = new Circle(); 
+circle.radius = 5; 
+console.log(circle.radius); 
+","Question: 67
+The output of the code will be 5.
+Explanation:
+The Circle class defines a private property _radius and a getter and a setter for the property. When an instance of the
+Circle class is created, the setter method for the radius property is called and the value 5 is assigned to the private
+_radius property.
+Then, the console.log(circle.radius) statement retrieves the value of the radius property by calling the getter method,
+which returns the value of the private _radius property. This value is 5, so it is printed to the console.
+",0,0,undefined,0,null,0,5,1
+"JavaScript Zertifikat","What line of code should be inserted in the following code snippet to declare a private property _number and initialize it
+with the value 30?
+class Person {
+ // insert line of code here
+}
+let person = new Person();
+person._name = ""John""; 
+console.log(person._name);
+","Question: 68
+To declare a private property _number and initialize it with the value 30 using a constructor, the following line of code
+can be added inside the Person class:
+ constructor() { 
+ this._number = 30; 
+} 
+The updated code would look like:
+ class Person {   constructor() {    
+   this._number = 30;  
+  }
+} 
+let person = new Person();
+person._name = ""John""; 
+console.log(person._name); 
+Note that private properties should not be accessed directly from outside the class. The _name property in this example
+should also be declared as private if it is not intended to be accessed from outside the class.
+","_name = 30; ",0,"constructor() {  this._name = 30 }",1,"var _name = 30; ",0,"let _name = 30; ",0
+"JavaScript Zertifikat","What line of code should be inserted in the following code snippet to declare a private property _age and initialize it with
+the value 30?
+class Person 
+{ 
+ // insert line of code here 
+} 
+let person = new Person(); 
+person._age = 30; 
+console.log(person._age); 
+","Question: 69
+The missing line should be _age = 0; as it initializes the private property _age with a default value of zero. In JavaScript,
+private properties can be declared using the # symbol, like #age. However, this is not yet standardized and is currently
+only supported in certain JavaScript engines.
+In this case, _age is used instead, which is a convention used to indicate that the property is private and should not be
+accessed directly from outside the class. The reason why _age is set to 0 is to ensure that it is defined even if it is not
+explicitly set when creating a new instance of the Person class.
+","var _age = 0;",0,"_age = 0;",1,"let _age = 0;",0,"this._age = 0;",0
+"JavaScript Zertifikat","In the following code snippet, what line of code should be inserted to declare a property x and initialize it with the value
+10?
+class A { 
+// insert line of code here 
+} 
+let a = new A(); 
+a._x = 10; 
+console.log(a._x); 
+","Question: 70
+In the given code snippet, _x = 0 should be inserted to declare a property x and initialize it with the value 10.
+In JavaScript, properties of an object can be added and initialized dynamically, meaning they can be added and initialized
+to an object after it is created. In the given code snippet, the constructor is not defined, so the property cannot be
+initialized inside it.
+Therefore, the property should be declared before it is initialized, and the initialization can be done when the object is
+created. The property name should not begin with an underscore as it is not a standard naming convention, but it will not
+cause any errors. The correct line of code to declare and initialize the property is:
+class A {
+  _x = 0;
+}
+let a = new A();
+a._x = 10;
+console.log(a._x);
+This code will output 10 to the console as the property _x is initialized to 0 and then updated to 10.
+","let _x = 0; ",0,"this._x = 0; ",0,"var _x = 0; ",0,"_x = 0; ",1
+"JavaScript Zertifikat","What will appear in the console as a result of executing the following code snippet?
+class User { 
+constructor(name, role) 
+ {
+  this.name = name; 
+  this.role = role; 
+ }
+}
+let user = new User(""John"", ""admin""); 
+console.log(`${typeof(user)} ${user instanceof User}`); 
+","Question: 71
+The code will output the following to the console:
+object true
+This is because:
+The typeof(user) expression returns ""object"", which indicates that user is an object.
+The user instanceof User expression returns true, which indicates that user is an instance of the User class.
+","User true",0,"object true",1,"object false",0,"User false",0
+"JavaScript Zertifikat","What will appear on the console when the following code is executed:
+class Square { 
+ _sideLength = 0;
+ set sideLength(value) { 
+  this._sideLength = value; 
+ }
+ get sideLength() { 
+ return this._sideLength; 
+ } 
+}
+let square = new Square(); 
+square.sideLength = 10; 
+console.log(square.sideLength) 
+","Question: 72
+The output of the code will be 10.
+Explanation:
+The code declares a Square class with a private property _sideLength, and getter/setter methods for accessing/modifying
+its value. It then creates a new instance of Square and sets its sideLength property to 10. Finally, it logs the value of
+square.sideLength to the console, which will be 10 since that is the value that was just set.
+",undefined,0,10,1,0,0,"TypeError ",0
+"JavaScript Zertifikat","Analyze the following code
+class Shape { 
+ getName() { 
+  return ""Shape""; 
+ }
+}
+class Circle extends Shape { 
+ getName() { 
+  return ""Circle""; 
+ }
+ test(x) {
+  return x? this.getName() : super.getName();
+ }
+}
+let circle = new Circle(); 
+console.log(`${circle.test(true)} ${circle.test(false)}`); 
+","Question: 73
+This code defines two classes Shape and Circle. Circle extends Shape.
+Shape class has a method getName() that returns the string ""Shape"".
+Circle class has a method getName() that returns the string ""Circle"", which overrides the implementation in the Shape
+class. The Circle class also has a method test(x) that takes a boolean parameter x. If x is true, the test() method calls the
+getName() method of the Circle class and returns the string ""Circle"". Otherwise, it calls the getName() method of the
+Shape class using the super keyword and returns the string ""Shape"".
+The code creates an instance of the Circle class and calls the test() method twice with true and false as arguments,
+respectively. The output of the console.log() statement is the string ""Circle Shape"".
+","Shape Circle",0,"Shape Shape",0,"Circle Shape",1,"Circle Circle",0
+"JavaScript Zertifikat","What will be the output when the following code is executed:
+class Vehicle {
+ _make = """";
+ set make(value) {
+  this._make = value;
+ }
+ get make() {
+ return this._make;
+ }
+}
+class Car extends Vehicle {
+ _model = """";
+ set model(value) {
+  this._model = value;
+ }
+ get model() {
+ return this._model;
+ }
+} 
+let car = new Car(); 
+car.make = ""Toyota""; 
+car.model = ""Camry""; 
+console.log(${car.make} ${car.model}); 
+","Question: 74
+The output will be: Toyota Camry.
+This code declares a class Vehicle with a private property _make and a getter/setter to access it. It also declares a
+subclass Car which extends Vehicle and has its own private property _model and getter/setter for it.
+The code then creates a new instance of Car and sets its make and model properties to ""Toyota"" and ""Camry""
+respectively. Finally, it logs the value of car.make and car.model to the console using string interpolation.
+","undefined Camry",0,"Toyota Camry",1,"Toyota undefined",0,"Camry Toyota",0
+"JavaScript Zertifikat","What will be the output when the following code is executed:
+class Car { 
+ _brand = """";
+ set brand(value) { 
+ this._brand = value; 
+ } 
+ get brand() { 
+ return this._brand; 
+ } 
+} 
+let car = new Car(); 
+car.brand = ""Toyota""; 
+console.log(car.brand) 
+","Question: 75
+The output of the code will be:
+Toyota
+Explanation:
+The class Car defines a private property _brand, which is accessed through a setter and a getter method.
+An instance of Car is created using the new operator and assigned to the variable car.
+The brand setter method is called on the car object with the argument ""Toyota"", which sets the value of the private
+property _brand to ""Toyota"".
+The brand getter method is called on the car object, which returns the value of the _brand property, which is ""Toyota"".
+The output of console.log(car.brand) is ""Toyota"".
+",Toyota,1,"undefined Toyota",0,null,0,undefined,0
+"JavaScript Zertifikat","Which of the following options is the correct code to declare a class Circle with a radius property, a method to set the
+radius and a method to calculate the area?
+radius;  }  calculateArea() {  return Math.PI * this.radius * this.radius;  } }
+* this.r * this.r;  } } 
+this.radius;  }  constructor(radius) {  this.radius = radius;  } }
+{  return Math.PI * radius * radius;  } } 
+","Question: 76
+This code is correct because it declares a class Circle with a constructor that takes a radius parameter and initializes the
+radius property with it. The setRadius method allows the radius property to be updated after the Circle object has been
+created. The calculateArea method uses the radius property to calculate the area of the circle using the formula Ï€rÂ².
+This class encapsulates the state and behavior of a circle object, and provides a way to calculate its area by exposing a
+public method.
+","class Circle {  constructor(radius) {  this.radius = radius;  }  setRadius(radius) {  this.radius =",1,"class Circle {  constructor(r) {  this.r = r;  }  setRadius(radius) {  this.r = radius;  } calculateArea() {  return Math.PI",0,"class Circle {  setRadius(radius) {  this.radius = radius;  }  calculateArea() {  return Math.PI * this.radius *",0,"class Circle {  constructor(radius) {  this.radius = radius;  }  setRadius(r) {  this.radius = r;  }  calculateArea(radius)",0
+"JavaScript Zertifikat","Analyze the following code:
+let Shape = class {};
+The syntax is:
+","Question: 77
+Yes, the syntax is correct. This creates a class named Shape and assigns it to the variable Shape using the class keyword
+and the let keyword for variable declaration. However, this class does not have any properties or methods defined in it,
+so it is an empty class.
+","Incorrect, should instead be class Shape {};",0,"Incorrect, the class definition cannot be empty.",0,"Incorrect, class definition should not be followed with a semi-colon",0,Correct,1
+"JavaScript Zertifikat","What is the correct code to declare a class Point with a constructor that takes two arguments x and y, and a method
+setColor that sets the color property of the Point instance?
+
+","Question: 78
+This code is correct in declaring a class Point with a constructor that takes two arguments x and y, and a method setColor
+that sets the color property of the Point instance.
+In this code, the constructor method initializes the x and y properties of the Point instance, while the setColor method
+sets the color property of the Point instance.
+","class Point { constructor(x, y) {  this.x = x;  this.y = y; } setColor = function(color) {  this.color = color; }}",1,"class Point {  constructor(x, y) {  this.x = x; this.y = y;  } } Point.prototype.setColor = function(color) { this.color = color; } ",0,"class Point {  constructor(x, y);  setColor(color) { this.color = color; }}",0,"function Point(x, y) {  this.x = x; this.y = y; } Point.prototype.setColor = function(color) {  this.color = color; } ",0
+"JavaScript Zertifikat","What is the output of the following code snippet?
+class Base { 
+ greeting() { 
+  return ""Hello from Base""; 
+ }
+}
+class Child extends Base {
+ greeting() {
+  return ""Hello from Child"";
+ }
+ sayGreeting() {
+  return super.greeting();
+ }
+}
+let child = new Child(); 
+console.log(child.sayGreeting());
+","Question: 79
+The output of the code snippet will be ""Hello from Base"".
+This is because sayGreeting method of the Child class calls the greeting method of its parent class Base using the super
+keyword. Since greeting is overridden in the Child class, the super keyword refers to the greeting method of the Base
+class, which returns ""Hello from Base"".
+",Error,0,"Hello from Child",0,undefined,0,"Hello from Base",1
+"JavaScript Zertifikat","class User {}; 
+let user = new User(); 
+console.log(`${typeof(user)} ${user instanceof User}`); 
+","Question: What is the output of the following code snippet?
+The output of the code snippet will be:
+object true
+Explanation:
+The code declares a class User and creates an instance of it using the new operator, which is assigned to the variable
+user.
+The first console.log statement uses a template literal to print the type of user and whether it is an instance of User.
+Since user is an instance of User, user instanceof User returns true. The typeof operator applied to an object always
+returns ""object"". So the first console.log statement will print ""object true"".
+","User true",0,"object false",0,"string false",0,"object true",1
+"JavaScript Zertifikat","Analyze the following code:
+console.log(`${Boolean(true)} ${Boolean(""false"")} ${Number(false)} ${Number(""false"")}`); 
+What will appear on the console as a result of code execution
+","Question: 81
+The following will appear on the console as a result of the code execution:
+true true 0 NaN
+This is because:
+Boolean(true) returns true, which is coerced to a string ""true"" through template literal interpolation.
+Boolean(""false"") returns true, because the string ""false"" is non-empty and therefore truthy.
+Number(false) returns 0, because false is equivalent to the number 0.
+Number(""false"") returns NaN, because ""false"" is not a valid number and cannot be converted to a number.
+","true true 0 NaN",1,"false true 0 1",0,"false false 0 NaN",0,"true false 0 NaN",0
+"JavaScript Zertifikat","What is the output of the following code?
+console.log(`${Boolean(false)} ${Boolean(""false"")} ${Number(false)} ${Number(""false"")}`);
+","Question: 82
+The output of the code will be:
+false true 0 NaN
+Explanation:
+Boolean(false) returns false, which is a boolean value.
+Boolean(""false"") returns true, because the string ""false"" is a truthy value (i.e., it is not an empty string, null, undefined, 0,
+or NaN).
+Number(false) returns 0, because the boolean value false has a numeric value of 0.
+Number(""false"") returns NaN, because the string ""false"" cannot be converted to a number.
+","false false 0 NaN",0,"false true 0 0",0,"false true 0 NaN",1,"true true 1 0",0
+"JavaScript Zertifikat","What is the result of the following expression:
+typeof(null) 
+","Question: 83
+The result of the expression typeof(null) is ""object"". This is a known quirk of JavaScript - null is technically an object, even
+though it is meant to represent the absence of any object value.
+",number,0,object,1,undefined,0,null,0
+"JavaScript Zertifikat","What is the value of the following expression:
+""5"" + 3 
+","Question: 84
+The value of the expression ""5"" + 3 is ""53"".
+When the + operator is used with a string and a number, the number is converted to a string and concatenated with the
+string. In this case, ""5"" is a string and 3 is a number, so 3 is converted to the string ""3"" and concatenated with ""5"",
+resulting in the string ""53"".
+",8,0,53,0,"""53""",1,TypeError,0
+"JavaScript Zertifikat","What is the value of the following expression:
+var x = 10; 
+var y = 20; 
+var z = (y > x) ? ""y is greater than x"" : ""y is not greater than x""; 
+","Question: 85
+The value of z will be ""y is greater than x"". This is because the conditional (ternary) operator ? : is used here to evaluate
+whether the condition (y > x) is true or false. Since y is greater than x, the condition is true, and the value of z will be the
+first operand (""y is greater than x"").
+",10,0,20,0,"""y is greater than x""",1,"""y is not greater than x""",0
+"JavaScript Zertifikat","What will be the value of result after the following code is executed?
+var num1 = 10; 
+var num2 = 20; 
+var result = (num2 === 20) ? ""yes"" : ""no"";
+","Question: 86
+In the given code, num1 is assigned the value 10 and num2 is assigned the value 20. The [removed]num2 === 20)
+returns true because the value of num2 is 20, which is equal to 20. Therefore, the ternary operator ? evaluates to yes and
+the value of result becomes yes.
+",10,0,20,0,"""yes""",1,"""no""",0
+"JavaScript Zertifikat","A call to Date.now() will return:
+","Question: 87
+A call to Date.now() will return the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC, also
+known as the Unix epoch.
+","The number of milliseconds since 00:00:00 on 1 January 1970",1,"The number of seconds since 00:00:00 on 1 January 1970",0,"The current Date as a DateTime object",0,"The number of milliseconds since 00:00:00 on 1 January 2000",0
+"JavaScript Zertifikat","What will be the value of result after the following code is executed?
+var name = ""John"";
+var result = (typeof(name) === ""string"") ? true : false;
+","Question: 88
+The value of result will be true.
+In this code, typeof is used to determine the data type of the variable name. Since name is assigned a string value ""John"",
+the condition (typeof(name) === ""string"") will evaluate to true. Therefore, the value of result will be set to true.
+","""John""",0,True,1,False,0,"""string""",0
+"JavaScript Zertifikat","What will be logged to the console after the following code is executed?
+var num1 = 10; 
+var num2 = 20; 
+console.log(num1 < num2); 
+","Question: 89
+The code will output true to the console, since num1 is less than num2.
+",10,0,20,0,True,1,False,0
+"JavaScript Zertifikat","Which methods allows you to replace selected elements of an array with other elements given in the method call?
+","Question: 90
+The splice() method can be used to replace selected elements of an array with other elements given in the method call.
+",slice,0,splice,1,set,0,replace,0
+"JavaScript Zertifikat","What should be inserted at the marked location in the following code to log the second y value in the points array to the
+console?
+let points = [{x: 10, y: 20}, {x: 0, y: 30}, {x: 20, y: 100}];
+//Insert line here 
+","Question: 91
+You can log the second y value in the points array by adding the following line of code:
+console.log(points[1].y);
+This will access the second element of the points array (which has an index of 1), and then access its y property. The
+value of this property will then be logged to the console.
+",console.log(points[2].y);,0,console.log(points[1].y);,1,console.log(points.y[1]);,0,console.log(points.x[1]);,0
+"JavaScript Zertifikat","What is the output of the following code?
+var name = ""John""; 
+var result = (typeof name === ""string"") ? true : false;
+console.log(result);
+var num1 = 10; 
+var num2 = 20; 
+console.log(num1 < num2);
+let points = [{x: 10, y: 20}, {x: 0, y: 30}, {x: 20, y: 100}]; 
+console.log(points[1].y); 
+","Question: 92
+The output of the code will be:
+true true 30
+The first console.log statement checks if the variable name is of type ""string"" using a ternary operator, and since it is a
+string, the result is true.
+The second console.log statement compares num1 with num2 using the < operator and since num2 is greater than
+num1, the result is true.
+The third console.log statement accesses the second element in the points array, which is the object {x: 0, y: 30}, and
+then accesses its y property using dot notation, resulting in 30 being logged to the console.
+","""John"" true 100",0,"true true 30",1,"""string"" false 100",0,"true true 20",0
+"JavaScript Zertifikat","What will be the value of result after the following code is executed?
+var num = 10; 
+var result = (num >= 10) ? ""Greater or Equal to 10"" : ""Less than 10""; 
+","Question: 93
+The code initializes a variable num with a value of 10, and then evaluates an expression that checks whether num is
+greater than or equal to 10.
+The expression uses a ternary operator, which is a shorthand way of writing an if-else statement. If the condition num >=
+10 is true, then the value of the expression is ""Greater or Equal to 10"", otherwise it is ""Less than 10"".
+Since num is equal to 10, the condition num >= 10 is true, and therefore the value of result will be ""Greater or Equal to
+10"".
+",10,0,"""Greater or Equal to 10",1,"""Less than 10""",0,True,0
+"JavaScript Zertifikat","What will be logged to the console after the following code is executed?
+var myArray = [1, 2, 3, 4, 5]; 
+console.log(myArray.length);
+","Question: 94
+The code will log 5 to the console, which is the length of the myArray array.
+","1,2,3,4,5",0,"[1, 2, 3, 4, 5]",0,5,1,0,0
+"JavaScript Zertifikat","Which of the following statements about an object of the Set class in not true?
+","Question: 95
+The statement ""Each element of an object of the Set class consists of a key and a value"" is not true.
+The Set class in JavaScript is a built-in object that allows you to store unique values of any type, whether primitive values
+or object references. The values in a Set are not associated with keys, as in objects, but rather each value is itself a key.
+In other words, a Set stores a collection of values that can be iterated in the order of insertion. Unlike an array, however,
+a Set does not have indexes or keys associated with each value. Instead, each value in a Set is unique and serves as its
+own key, which can be used to check for the presence or absence of the value in the Set.
+","The Set class does exist in javascript",0,"Order of data in a Set does not matter",0,"Each elements of an object of the Set class consists of a key and a value",1,"Set has an add method to insert elements",0
+"JavaScript Zertifikat","Which of the following statements about an object of the Map class is not true?
+","Question: 96
+The following statement is not true: ""Elements with the same key can be repeated in a Map object, provided they have
+different values.""
+In a Map object, each key can only occur once, and each key is associated with a corresponding value. If the same key is
+used again in a subsequent Map operation, the old key-value pair will be replaced by the new one. This is one of the key
+differences between a Map and an object in JavaScript, where keys can be repeated and the last key-value pair with the
+same key will overwrite any previous ones.
+","Elements with the same key can be repeated in a Map object, provided they have different values",1,"You can use the spread operator on the Map class",0,"The set method is used to insert a new element into a Map object",0,"Map objects do exist in JavaScript",0
+"JavaScript Zertifikat","The shape object can be converted to JSON format using the built-in command:
+","Question: 97
+The shape object can be converted to JSON format using the built-in JSON.stringify() method.
+",JSON.parse(shape);,0,JSON.stringify(shape);,1,JSON(shape);,0,shape.toJSON();,0
+"JavaScript Zertifikat","What will appear in the console as a result of a code execution?
+console.log(`${Math.floor(5.4)} ${Math.ceil(1.2)} ${Math.round(2.5)}`)
+","Question: 98
+Math.floor(5.4) rounds down the number 5.4 to the nearest integer, which is 5.
+Math.ceil(1.2) rounds up the number 1.2 to the nearest integer, which is 2.
+Math.round(2.5) rounds the number 2.5 to the nearest integer, which is 3.
+The console.log() function is used to print the values separated by spaces.
+","6 2 3",0,"5 1 3",0,"6 1 2",0,"5 2 3",1
+"JavaScript Zertifikat","What will appear in the console as a result of code execution?
+console.log(`${""str"".match(""a"")}`) 
+","Question: 99
+The code uses the match() method on the string ""str"" and passes the regular expression ""a"" as an argument. The match()
+method searches the string for a match against the specified regular expression.
+In this case, the regular expression ""a"" does not match any occurrence of the letter ""a"" in the string ""str"". Therefore, the
+match() method returns null, indicating that no match was found.
+When ${""str"".match(""a"")} is used within the template literal ${}, the resulting value is converted to a string. In this case,
+since match() returned null, it is converted to the string ""null"", which is then logged to the console
+",False,0,null,1,-1,0,0,0
+"JavaScript Zertifikat","What is the value of result after the following code is executed?
+var str = ""Hello World!""; 
+var result = str.toUpperCase(); 
+","Question: 100
+After executing the provided code, the value of result will be the string ""HELLO WORLD!"".
+Explanation: The code uses the toUpperCase() method on the string variable str. The toUpperCase() method is a built-in
+JavaScript method that converts all the characters in a string to uppercase letters.
+In this case, the original string ""Hello World!"" is converted to uppercase, resulting in ""HELLO WORLD!"". The converted
+string is then assigned to the variable result.
+","""hello world!""",0,"""hello world!""",0,"""hello world!""",1,11,0
+"JavaScript Zertifikat","Analyze the following code:
+let str = ""sample string"";
+console.log(`${str.includes('s')} ${str.indexOf('s')} ${str.lastIndexOf('s')}`);
+What will appear in the console?
+","Question: 101
+The includes() method checks if a string includes a specific substring and returns a boolean value of true or false. In this
+case, the string str includes the substring 's', so str.includes('s') returns true.
+The indexOf() method returns the index of the first occurrence of a specified substring within a string. In this case, the
+first occurrence of 's' is at index 0, so str.indexOf('s') returns 0.
+The lastIndexOf() method returns the index of the last occurrence of a specified substring within a string. In this case, the
+last occurrence of 's' is at index 7, so str.lastIndexOf('s') returns 7.
+","true 0 7",1,"true 0 8",0,"true 1 8",0,"1 1 8",0
+"JavaScript Zertifikat","Which line of code returns the current year?
+","Question: 102
+The getFullYear() method is used to get the current year because it returns the year of a given date as a four-digit
+number. If no parameter is provided, it returns the current year of the system's local time.
+","new Date(Date.now()).getFullYear(); ",1,"new Date.now().getFullYear();",0,"Date.now().getYear(); ",0,"Date().getFullYear(); ",0
+"JavaScript Zertifikat","There is one line missing in the code below:
+let x = [1, 2, 3, 4];
+// Insert line of code here
+console.log(result);
+Which missing line will result in the console output ""1010""
+","Question: 103
+The missing line of code that will result in the console output ""1010"" is:
+let result = x.reduce((x, y) => x + y, 1000);
+This uses the reduce() method to add up all the elements in the array x, and starts the accumulation with the initial value
+of 1000. So the final result will be 1010.
+","let result = x.reduce((x, y) => x + 1000, y) ",0,"let result = x.reduce((x, y) => x, 1000 + y) ",0,"let result = x.reduce((x, y) => x + y, 1000) ",1,"let result = x.reduce((x, y) => x - y, 1000) ",0
+"JavaScript Zertifikat","What will be the value of result after the following code is executed?
+var arr = [1, 2, 3, 4, 5]; 
+var result = arr.slice(1, 4); 
+","Question: 104
+After the code is executed, the variable result will contain the values [2, 3, 4].
+The slice() method returns a new array that contains a copy of elements from the original array, based on the provided
+arguments. In this case, the slice() method is called on the arr array and the arguments 1 and 4 are provided. This means
+that the slice() method will create a new array that contains a copy of elements starting from index 1 (the second
+element) up to, but not including, index 4 (the fifth element). Therefore, the elements [2, 3, 4] will be copied into the new
+array and assigned to the result variable.
+","[1, 2, 3, 4, 5]",0,"[2, 3, 4]",1,"[1, 2, 3, 4]",0,"[4, 5]",0
+"JavaScript Zertifikat","What will be the value of result after the following code is executed?
+var str = ""Hello World!""; 
+var result = str.slice(0, 5);
+","Question: 105
+After executing the code, the value of result will be ""Hello"".
+The slice() method extracts a section of a string and returns it as a new string, without modifying the original string. In
+this case, str.slice(0, 5) starts at index 0 of the str string and extracts up to (but not including) index 5, which includes the
+characters ""H"", ""e"", ""l"", ""l"", and ""o"". Therefore, the value of result is ""Hello"".
+","""Hello""",1,"""Hello World""",0,""" World!""",0,"""llo W""",0
+"JavaScript Zertifikat","What will be the value of result after the following code is executed?
+var arr = [1, 2, 3, 4, 5];
+var result = arr.slice(3); 
+","Question: 106
+After the execution of the following code:
+var arr = [1, 2, 3, 4, 5];
+var result = arr.slice(3);
+the variable result will contain the subarray [4, 5], which starts from the index 3 (inclusive) of the original array arr. The
+slice() method creates a new array that includes elements from the starting index up to (but not including) the ending
+index, or until the end of the array if no ending index is provided. In this case, since only one argument is provided, the
+slice() method will include all elements from the starting index to the end of the array.
+","[1, 2, 3, 4, 5]",0,"[3, 4, 5]",0,"[4, 5]",1,"[1, 2, 3]",0
+"JavaScript Zertifikat","What will be the value of result after the following code is executed?
+var arr = [1, 2, 3, 4, 5];
+var result = arr.splice(2, 2); 
+","Question: 107
+After the following code is executed, the value of result will be an array [3, 4], and the arr array will be modified to be [1,
+2, 5].
+Here's what's happening:
+The splice() method is called on the arr array with arguments 2 and 2. This means that starting from index 2, two
+elements (i.e., 3 and 4) will be removed from the array.
+The splice() method returns the removed elements as a new array, which is assigned to the result variable.
+","[1, 2, 3, 4, 5]",0,"[1, 2, 5]",0,"[3, 4]",1,"[1, 2, 3, 4, 5, 3, 4]",0
+"JavaScript Zertifikat","What will be the value of result after the following code is executed?
+var arr = [1, 2, 3, 4, 5];
+var result = arr.splice(2, 0, 6, 7, 8);
+","Question: 108
+After the following code is executed, the value of arr will be [1, 2, 6, 7, 8, 3, 4, 5], and the value of result will be an empty
+array [].
+The splice() method is used to add or remove elements from an array. In this case, the splice() method is called with the
+arguments 2 and 0, which means that no elements should be removed from the array. The elements 6, 7, and 8 are then
+added to the array starting at index 2. The resulting array is [1, 2, 6, 7, 8, 3, 4, 5].
+The splice() method returns an array of the removed elements, or an empty array if no elements were removed. In this
+case, no elements were removed, so result is an empty array [].
+","[1, 2, 3, 4, 5]",0,"[6, 7, 8]",0,"[1, 2, 3, 4, 5, 6, 7, 8]",0,"[1, 2, 6, 7, 8, 3, 4, 5]",1
+"JavaScript Zertifikat","What will be the value of arr after the following code is executed?
+var arr = [1, 2, 3, 4, 5];
+arr.splice(2, 1, 6, 7, 8); 
+","Question: 109
+After executing the above code, the value of arr will be [1, 2, 6, 7, 8, 4, 5].
+The splice() method is used to add or remove elements from an array. In this case, the method is called on the arr array
+with the arguments 2 (the index at which to start changing the array), 1 (the number of elements to remove from the
+array), and 6, 7, 8 (the elements to add to the array).
+So the element at index 2 (which is 3 in the original array) is removed and replaced with the elements 6, 7, and 8. The
+resulting array is [1, 2, 6, 7, 8, 4, 5].
+","[1, 2, 6, 7, 8, 4, 5]",1,"[1, 2, 3, 4, 5]",0,"[1, 2, 6, 7, 8, 3, 4, 5]",0,"[1, 2, 6, 7, 8, 5]",0
+"JavaScript Zertifikat","What will be the value of result after the following code is executed?
+var arr = [1, 2, 3, 4, 5];
+var result = arr.join(""-"");
+","Question: 110
+The join() method is used to join all the elements of an array into a string. You can specify an optional separator
+parameter, which is used to separate the elements of the array. If no separator is specified, the default separator is a
+comma (,).
+In the example provided, the join() method is called on the arr array with a hyphen (-) separator specified as an
+argument. This means that each element in the array will be separated by a hyphen in the resulting string. The resulting
+string is then stored in the result variable.
+So, in this case, the value of result will be a string ""1-2-3-4-5"", where each number in the original array is separated by a
+hyphen.
+","[1, 2, 3, 4, 5]",0,"""1,2,3,4,5""",0,"""1-2-3-4-5""",1,"""5-4-3-2-1""",0
+"JavaScript Zertifikat","What will be the value of result after the following code is executed?
+var arr = [""apple"", ""banana"", ""cherry""]; 
+var result = arr.join(""-""); 
+","Question: 111
+After the code is executed, the variable result will be a string ""apple-banana-cherry"", which is the original array arr
+converted to a string using the join() method.
+The join() method is used to convert the elements of an array into a string, with each element separated by a specified
+separator (in this case, ""-"").
+","[""apple"", ""banana"", ""cherry""]",0,"""apple,banana,cherry""",0,"""apple-banana-cherry""",1,"""cherry-banana-apple""",0
+"JavaScript Zertifikat","What will be the value of result after the following code is executed?
+var arr = [1, 2, 3, 4, 5];
+var result = arr.filter(function(num) { 
+ return num % 2 === 0; 
+}); 
+","Question: 112
+After the code is executed, the result variable will contain an array of even numbers, [2, 4]. This is because the filter()
+method creates a new array with all elements that pass the test implemented by the provided function. In this case, the
+provided function returns true for all even numbers in the original array, and false for all odd numbers.
+","[1, 2, 3, 4, 5]",0,[4],0,"[4, 2]",0,"[2, 4]",1
+"JavaScript Zertifikat","What will be the value of result after the following code is executed?
+var arr = [3, 1, 4, 2, 5]; 
+var result = arr.sort();
+","Question: 113
+The value of result will be [1, 2, 3, 4, 5].
+The sort() method sorts the elements of an array in place and returns the sorted array. By default, sort() sorts elements
+alphabetically as strings, so in this case the result will be sorted in ascending order based on the string representation of
+the numbers. To sort numerically, a comparison function can be passed as an argument to sort().
+","[3, 1, 4, 2, 5]",0,"[1, 2, 3, 4, 5]",1,"[5, 4, 3, 2, 1]",0,"[1, 2, 4, 5, 3]",0
+"JavaScript Zertifikat","What will be the value of result after the following code is executed?
+var arr = [1, 2, 3, 4, 5]; 
+var result = arr.map(function(num) { 
+ return num * 2; 
+}); 
+","Question: 114
+The value of result will be an array [2, 4, 6, 8, 10] containing the result of doubling each element in the original array arr.
+The map() method creates a new array by applying a function to each element of an existing array. In this case, the
+anonymous function passed to the map() method takes a number as input, multiplies it by 2, and returns the result. This
+operation is applied to each element of the arr array, resulting in a new array where each element is double the
+corresponding element in arr.
+","[1, 2, 3, 4, 5]",0,"[10, 8, 6, 4, 2]",0,"[2, 4, 6, 8, 10]",1,"[1, 4, 9, 16, 25]",0
+"JavaScript Zertifikat","What will be the value of result after the following code is executed?
+var arr = [{name: 'John', age: 20}, {name: 'Jane', age: 25}, {name: 'Jim', age: 30}]; 
+var result = arr.map(function(obj) {
+ return obj.age;
+}).filter(function(age) {
+ return age >= 25;
+}); 
+","Question: 115
+The value of result will be an array [25, 30].
+Here's how the code works:
+The map() function is called on the arr array to create a new array containing the ages of each person in the original
+array: [20, 25, 30].
+The filter() function is then called on this new array to create another new array that only contains ages greater than or
+equal to 25: [25, 30].
+This final array is assigned to the result variable.
+","[20, 25, 30]",0,"[{name: 'Jane', age: 25}, {name: 'Jim', age: 30}]",0,"[25, 30]",1,[20],0
+"JavaScript Zertifikat","What will be the value of result after the following code is executed?
+var arr = [{name: 'John', age: 20}, {name: 'Jane', age: 25}, {name: 'Jim', age: 30}]; 
+var result = arr.reduce(function(acc, obj) { 
+ acc[obj.name] = obj.age; 
+ return acc; 
+}, {});
+","Question: 116
+The reduce() method takes an array and reduces it to a single value by applying a function to each element of the array.
+In this code, the reduce() method is called on the arr array with a callback function that takes two arguments: acc (the
+accumulator) and obj (the current object in the array).
+The initial value of the accumulator is an empty object {}. In each iteration, the callback function assigns a new property
+to the accumulator with the key as the name property of the current object and the value as the age property of the
+current object. Finally, the accumulator object is returned.
+So the value of result will be an object with the following key-value pairs:
+{   John: 20,   Jane: 25,   Jim: 30 }
+","{John: 20, Jane: 25, Jim: 30}",1,"[{name: 'Jane', age: 25}, {name: 'Jim', age: 30}]",0,"[20, 25, 30]",0,"{20, 25, 30}",0
+"JavaScript Zertifikat","What will be the value of result after the following code is executed?
+var arr = [5, 12, 8, 130, 44];
+var result = arr.find(function(element) {
+return element > 10;
+}); 
+","Question: 117
+The value of result will be 12.
+The find() method returns the first element in an array that satisfies a provided testing function. In this case, the testing
+function is element > 10, which returns true for the second element of the array (12). Therefore, find() returns 12 and
+assigns it to result.
+","[5, 12, 8, 130, 44]",0,"[12, 130, 44]",0,12,1,undefined,0
+"JavaScript Zertifikat","What will be the value of result after the following code is executed?
+var str = ""The quick brown fox"";
+var result = str.replace(/[aeiou]/gi, '*'); 
+","Question: 118
+The value of result will be:
+Th* q**ck br*wn f*x
+Explanation:
+The replace() method with the regular expression /[aeiou]/gi matches all vowels (a, e, i, o, u) in the string str and replaces
+them with an asterisk *. The g and i flags in the regular expression make the search global and case-insensitive,
+respectively.
+","""Th* qck brwn fx""",0,"""Th* quck brwn fx""",0,"""Th qck brwn fx.""",0,"Th* q**ck br*wn f*x",1
+"JavaScript Zertifikat","What will be the value of result after the following code is executed?
+var str = ""Hello, World!"";
+var result = str.match(/[A-Z]/g); 
+","Question: 119
+The value of result will be [""H"", ""W""].
+The regular expression [A-Z] matches any uppercase letter from A to Z. The g flag is used to perform a global search for
+all matches in the input string str. The match() function returns an array of all matches found in the input string.
+","[""Hello"", ""World""]",0,"[""H"", ""W""]",1,"[""H"", ""E"", ""L"", ""L"", ""O"", ""W"", ""O"", ""R"", ""L"", ""D""]",0,null,0
+"JavaScript Zertifikat","What will be the value of result after the following code is executed?
+function Animal(name) {
+ this.name = name; 
+}
+Animal.prototype.getName = function() {
+ return this.name; 
+};
+var a = new Animal(""Lion""); 
+var result = a.getName(); 
+","Question: 120
+The value of result will be ""Lion"".
+Explanation:
+The Animal constructor function defines a property name and a method getName on its prototype.
+The new keyword is used to create a new instance of the Animal class with the name ""Lion"".
+The getName method is then called on the instance a, which returns the value of its name property, which is ""Lion"".
+This value is assigned to the variable result.
+",Animal,0,Lion,1,undefined,0,ReferenceError,0
+"JavaScript Zertifikat","What is the result of the following code and why?
+const car = {
+ make: 'Tesla',
+ model: 'Model S',
+ displayMakeAndModel: function() {
+  console.log(`The car is a ${this.make} ${this.model}.`);
+ }
+};
+const truck = { make: 'Ford', model: 'F-150' };
+const displayTruckMakeAndModel = car.displayMakeAndModel.bind(truck);
+displayTruckMakeAndModel(); 
+","Question: 121
+The result of the code will be: ""The car is a Ford F-150.""
+This is because the bind() method creates a new function that, when called, has its this keyword set to the provided
+value, in this case, the truck object. So, when displayTruckMakeAndModel() is called, the this keyword inside the
+displayMakeAndModel() method refers to the truck object, and the output is ""The car is a Ford F-150.""
+","The car is a undefined undefined.",0,"The car is a Ford F-150.",1,"TypeError: car.displayMakeAndModel.bind is not a function. ",0,"The car is a Tesla Model S.",0
+"JavaScript Zertifikat","What will be the output of the following code?
+const person = { 
+ name: ""John"", 
+ sayHello: function() { 
+  return `Hello, my name is ${this.name}`; 
+ } 
+}; 
+const sayHelloJohn = person.sayHello.bind({ name: ""John"" }); 
+const sayHelloJane = person.sayHello.bind({ name: ""Jane"" }); 
+console.log(sayHelloJohn()); 
+console.log(sayHelloJane()); 
+","Question: 122
+The output of the code will be:
+Hello, my name is John Hello, my name is Jane
+This is because the sayHello method is bound to different objects using the bind method. When sayHelloJohn is called, it
+returns ""Hello, my name is John"" because it was bound to an object with the name property set to ""John"". Similarly,
+sayHelloJane returns ""Hello, my name is Jane"" because it was bound to an object with the name property set to ""Jane"".
+","""Hello, my name is John"" ""Hello, my name is undefined""",0,"""Hello, my name is John"" ""Hello, my name is John""",0,"""Hello, my name is John"" ""Hello, my name is Jane""",1,"""Hello, my name is undefined"" ""Hello, my name is undefined""",0
+"JavaScript Zertifikat","What will the following code return when executed?
+let person = {
+ name: ""John Doe"",
+ greet: function() {
+  console.log(`Hello, I am ${this.name}`);
+ }
+} 
+let greetFriend = person.greet.bind(person);
+greetFriend(); 
+","Question: 123
+The output of the following code will be ""Hello, I am John Doe"".
+When greetFriend() is called, it executes the greet() method on the person object, but since it is bound to person, the this
+keyword inside the greet() method refers to person object. Therefore, it will log ""Hello, I am John Doe"" to the console.
+","Hello, I am John Doe",1,"ReferenceError: person is not defined  ",0,"TypeError: greetFriend is not a function ",0,"Hello, I am undefined",0
+"JavaScript Zertifikat","What is the correct way to make a GET request using the fetch API and extract JSON data from the response body?
+}).then((response) => response.json()) .then((json) => console.log(json));
+JSON.parse(data)).then((json) => console.log(json)); 
+","Question: 124
+The code performs an HTTP GET request to 'https://api.example.com/data', and then it parses the response as JSON. After
+that, it logs the resulting JavaScript object to the console.
+","fetch('https://api.example.com/data').then((response) => response.json().text()).then((json) => console.log(json)); ",0,"fetch('https://api.example.com/data',{ method: 'GET', headers: { 'Content-Type': 'application/json' },",0,"fetch('https://api.example.com/data').then((response) => response.json()).then((json) => console.log(json)); ",1,"fetch('https://api.example.com/data').then((response) => response.text()).then((data) =>",0
+"JavaScript Zertifikat","Which of the following correctly implements a JavaScript closure?
+","Question: 125
+The innerFunction creates a closure by referencing the outerVariable that is defined in the outer scope. When
+outerFunction is called, it returns innerFunction, which can then be assigned to a variable and called later to access the
+outerVariable. This allows the value of outerVariable to persist even after outerFunction has finished executing.
+"," function outerFunction() { var outerVariable = ""outer""; return function innerFunction() { return outerVariable; }} ",1,"var outerVariable = ""outer"";function outerFunction() { return function innerFunction() { return outerVariable; }} ",0," var outerVariable = ""outer"";function outerFunction() { var innerFunction = function() { return outerVariable; } return
+innerFunction;}
+",0,"function outerFunction() { var outerVariable = ""outer""; function innerFunction() { return
+outerVariable; } innerFunction(); } ",0
+"JavaScript Zertifikat","What will be the output in the console after the Promise.all method is executed?
+const promise1 = Promise.resolve(3);
+const promise2 = 42;
+const promise3 = new Promise((resolve, reject) => {
+ setTimeout(resolve, 100, 'foo');
+});
+Promise.all([promise1, promise2, promise3]).then((values) => {
+ console.log(values);
+}); 
+","Question: 126
+The output in the console will be:
+[3, 42, ""foo""]
+This is because Promise.all waits for all the promises in the array to be resolved or rejected and returns an array of their
+values in the same order as the promises were passed in.
+In this case, promise1 resolves to 3, promise2 is already a resolved value of 42, and promise3 resolves to the string 'foo'
+after a delay of 100ms due to the setTimeout function.
+","[3, 42, 'foo'] B) [3, 42, Promise { 'foo' }]",0,"[Promise { 3 }, 42, Promise { 'foo' }]",0,"[3, 42, 'foo']",1,"[Promise { 3 }, Promise { 42 }, Promise { 'foo' }]",0
+"JavaScript Zertifikat","What is the result of the following code, and why?
+function add(a = 0, b = 0) {
+  return a + b;
+}
+console.log(add(undefined, 5)); 
+","Question: 127
+The result of the code will be 5.
+When undefined is passed as a parameter, the default value of the parameter is used. In this case, since the value of a is
+undefined, it will take the default value of 0 and the value of b is 5. Therefore, the function returns 0 + 5, which is 5.
+","NaN, because undefined is not a valid value for a number.",0,"5, because a is defined as undefined and is therefore treated as the default value",1,"NaN, because a is not defined",0,"5, because both a and b are defined as default parameters",0
+"JavaScript Zertifikat","What is the output of the following code?
+let array = [1, 2, 3];
+let iterator = array[Symbol.iterator]();
+console.log(iterator.next().value);
+console.log(iterator.next().value);
+console.log(iterator.next().value);
+console.log(iterator.next().done); 
+","Question: 128
+The output of the code will be:
+1, 2, 3, true
+Explanation:
+The code creates an array [1, 2, 3] and gets an iterator object from it using the Symbol.iterator method.
+Then, the code calls the next() method of the iterator object multiple times to retrieve the values from the iterator.
+The first call to next() returns { value: 1, done: false }, so console.log(iterator.next().value) will print 1.
+The second call to next() returns { value: 2, done: false }, so console.log(iterator.next().value) will print 2.
+The third call to next() returns { value: 3, done: false }, so console.log(iterator.next().value) will print 3.
+The fourth call to next() returns { value: undefined, done: true }, indicating that there are no more items to iterate over
+in the array. Since done is true, the loop stops, and console.log(iterator.next().done) prints true.
+","1, 2, undefined, false",0,"1, 2, 3, false",0,"1, 2, undefined, true",0,"1, 2, 3, true",1
+"JavaScript Zertifikat","What will be the output of the following code?
+const a = { x: 1 };
+const b = { y: 2 };
+const c = { ...a, b, z: 3 };
+console.log(c);
+","Question: 129
+The output of the following code will be an object with properties x, y, and z and their corresponding values:
+{ x: 1, y: { b: 2 }, z: 3 }
+The code uses the object spread syntax (...) to create a new object c that combines the properties of objects a and b, and
+adds two additional properties b and z. The property b in the resulting object will have the same value as in object b. The
+order of the properties in the resulting object may vary between different JavaScript engines.
+","{ x: 1, y: 2, z: 3}",0,"{ y: 2 }",0,"{x: 1, b: { y: 2 }, z: 3}",1,undefined,0
+"JavaScript Zertifikat","What will be the value of result after the following code is executed?
+let funA = function(a, b) {
+return a + b;
+ }
+let decor = function(fn) {
+return function(arg1, arg2) {
+    let result = fn(arg1, arg2);
+    console.log(`result ${result}`);
+    return result;
+ }
+}
+let funB = decor(funA)); 
+let result = funB(3, 4);
+","Question: 130
+The value of result will be 7.
+In this code, the decor function is a higher-order function that takes in a function as an argument and returns a new
+function that logs the result of calling the original function and then returns that result.
+Here, funA is a function that takes in two arguments and returns their sum. funB is created by calling the decor function
+and passing in funA as an argument. funB is therefore a new function that takes in two arguments, calls funA with those
+arguments, logs the result of that call (which will be 7 in this case), and then returns that result.
+Finally, result is assigned the value returned by calling funB with arguments 3 and 4, which is 7.
+",12,0,-1,0,7,1,1,0
+"JavaScript Zertifikat","What will the following code output and why?
+let numbers = [1, 2, 3, 4];
+let add = (x, y) => x + y;
+let result = numbers.reduce(add, 0);
+console.log(result);
+","Question: 131
+The output of the code will be 10.
+The reduce() method is used to reduce the array to a single value. It takes two parameters: a callback function and an
+initial value. The callback function takes two arguments: the accumulator (which is the current value of the reduction)
+and the current value of the array. In this case, the callback function is the arrow function add, which takes two
+arguments and returns their sum. The initial value is 0.
+So, the reduce() method will start with an accumulator of 0 and add each value of the numbers array to it, resulting in a
+final value of 10.
+","NaN, because add is not a valid function for the reduce method to use.",0,"10, because the reduce function will sum up all elements in the numbers array and return the result",1,"undefined, because reduce is not a method of the Array object in JavaScript",0,"0, because the second argument 0 passed to reduce will override any values in the numbers array",0
+"JavaScript Zertifikat","What will the output be after executing the following code?
+let person = {
+ name: ""John"", greet: function () {
+  return `Hello, ${this.name}`;
+ }
+};
+let friend = { name: ""Jane"" };
+let greetFriend = person.greet.call(friend);
+console.log(greetFriend); 
+","Question: 132
+The output of the code will be ""Hello, Jane"".
+The call() method is used to call a function with a given this value and arguments provided as a comma-separated list. In
+this case, the person.greet() function is being called with the friend object as its this value using the call() method. The
+this.name expression in the function will refer to the name property of the friend object, which is ""Jane"". Therefore, the
+function will return the string ""Hello, Jane"".
+","Uncaught TypeError: Cannot read property 'name' of undefined ",0,"Hello, John",0,"Hello, Jane",1,"[Function: greet] ",0
+"JavaScript Zertifikat","What will be the output of the following code?
+let person = {
+ name: 'John',
+ introduce: function() {
+  console.log`(My name is ${this.name}`);
+ } 
+};
+let introduce = person.introduce;
+let person2 = { name: 'Jane' }; 
+introduce.call(person2); 
+","Question: 133
+There is a syntax error in the code. The line console.log(My name is ${this.name}); is missing a parenthesis after
+console.log. It should be console.log(My name is ${this.name});. Once this syntax error is corrected, the output of the
+code will be:
+My name is Jane
+This is because the introduce function is called with the call() method, passing person2 as the this value. Therefore, the
+value of this.name inside the introduce function will be 'Jane', which is the name property of person2.
+","My name is Jane",1,ReferenceError,0,"My name is John",0,TypeError,0
+"JavaScript Zertifikat","What is the difference between the async/await and Promises in JavaScript?
+","Question: 134
+Both async/await and Promises are used in JavaScript for handling asynchronous operations.
+Promises represent a value that may not be available yet but will be resolved in the future. A Promise can be in one of
+three states: pending, fulfilled, or rejected. You can attach callbacks to a Promise to handle the resolved value or any
+error that occurs during the operation.
+async/await is a syntactic sugar on top of Promises that makes writing asynchronous code look synchronous. An async
+function always returns a Promise, and you can use the await keyword to pause the execution of an async function until a
+Promise is resolved. It allows you to write asynchronous code in a way that looks like synchronous code.
+Note this is technically subjective, but if a question comes up like this in the exam make sure to answer accordingly.
+","async/await is the old way of doing asynchronous programming in JavaScript, and Promises are the new way.",0,"async/await is faster than Promises.",0,"async/await is easier to read and write than Promises.",1,"There is no difference, they are the same thing.",0
+"JavaScript Zertifikat","Which of the following is the correct way to define a function with default parameters in JavaScript?
+","Question: 135
+The following function definition is the correct way to define a function with default parameters in [removed]
+function add(a = 0, b = 0) {
+  return a + b;
+}
+This function has two parameters a and b, which are assigned default values of 0 using the = operator. If no arguments
+are passed to the function, the default values will be used. If arguments are passed, the default values will be overridden
+by the passed values.
+","function add(a = 0, b = 0) {return a + b;} ",1,"function add(a = 0; b = 0) {return a + b;}",0,"function add(a = 0, b) {return a + b;} ",0,"function add(a, b) = 0 {return a + b;}",0
+"JavaScript Zertifikat","What will the following code log to the console?
+let obj = { name: ""John"" };
+let greeting = function(a, b, c) {
+ return `Hello, my name is ${this.name} and I know ${a}, ${b} and ${c}`;
+};
+let func = greeting.bind(obj, ""JavaScript"", ""HTML"", ""CSS"");
+console.log(func()); 
+","Question: 136
+The output of the code will be:
+Hello, my name is John and I know JavaScript, HTML and CSS
+The bind() method creates a new function that, when called, has its this keyword set to the provided object (obj in this
+case) and with additional arguments that are passed as parameters (""JavaScript"", ""HTML"", ""CSS"" in this case). When
+func() is called, it logs the returned string, which includes the name property of obj and the arguments passed to bind().
+","TypeError: Cannot read property 'name' of undefined",0,"Hello, my name is John and I know undefined, undefined, undefined",0,"Hello, my name is undefined and I know JavaScript, HTML, CSS",0,"Hello, my name is John and I know JavaScript, HTML and CSS",1
+"JavaScript Zertifikat","What will be the output of the following code?
+const a = { x: 1 }; 
+const b = { y: 2 }; 
+const c = { ...a, ...b }; 
+console.log(c);
+","Question: 137
+The output of the following code will be an object with the properties of both a and b:
+{ x: 1, y: 2 }
+The spread operator (...) is used to combine the properties of the two objects into a new object c. The properties of a are
+copied first, followed by the properties of b. If there are properties with the same name, the last property specified will
+overwrite any previously defined properties with the same name.
+","{ x: 1 }",0,"{ y: 2 }",0,"{ x: 1, y: 2 }",1,undefined,0
+"JavaScript Zertifikat","What will be the value of result after the following code is executed?
+function outer(x) { 
+return function inner(y) { 
+ return x + y; 
+ }; 
+} 
+var add5 = outer(5);
+var result = add5(10); 
+","Question: 138
+The value of result will be 15.
+Here's how the code works:
+The outer function takes an argument x and returns an inner function inner.
+The inner function takes an argument y and returns the sum of x and y.
+When outer is called with the argument 5, it returns a function inner that adds 5 to its argument.
+This returned function is assigned to the variable add5.
+When add5 is called with the argument 10, it adds 5 to 10 and returns 15.
+This value is then assigned to the variable result.
+",10,0,20,0,15,1,5,0
+"JavaScript Zertifikat","What is the correct output of the following code:
+var obj = {
+  value: 10
+};
+var foo = function() {
+  console.log(this.value);
+};
+var bar = function() {
+  console.log(this.value);
+};
+var boundFoo = foo.call(obj);
+var boundBar = bar.bind(obj)();
+console.log(boundFoo === boundBar); 
+","Question: 139
+The output of the code will be:
+10 10 true
+Explanation:
+foo.call(obj) will invoke the foo function with obj as its this value, and will log 10 to the console.
+bar.bind(obj)() will create a new function that is a copy of bar, with obj bound as its this value, and then immediately
+invoke it, logging 10 to the console.
+boundFoo === boundBar will be true, because both boundFoo and boundBar are just regular function calls that log 10,
+and they are both invoked with obj as their this value.
+","10 10 false",0,"10 undefined false",0,"10 10 true",1,"undefined 10 false",0
+"JavaScript Zertifikat","Which of the following is the correct syntax for creating a generator function in JavaScript?
+","Question: 140
+The correct syntax for creating a generator function in JavaScript is using an asterisk (*) before the function name, like
+this:
+function* gen() {} 
+","gen() => {} ",0,"function gen() {} ",0,"*gen() {} ",0,"function *gen() {} ",1
+"JavaScript Zertifikat","What is the difference between .then() and .catch() methods in JavaScript Promises?
+","Question: 141
+In JavaScript Promises, the .then() method is used to handle the successful fulfillment of a Promise, while the .catch()
+method is used to handle the rejection of a Promise.
+When a Promise is fulfilled, the function passed to .then() is executed with the value of the fulfilled Promise as its
+argument. If the Promise is rejected, the function passed to .catch() is executed with the reason for rejection as its
+argument.
+Here's an example:
+const promise = new Promise((resolve, reject) => {
+  if (Math.random() < 0.5) {
+    resolve(""Success!"");
+  } else {
+    reject(""Failure!"");
+  }
+});
+promise
+  .then((result) => {
+    console.log(""Promise fulfilled:"", result);
+  })
+  .catch((error) => {
+    console.log(""Promise rejected:"", error);
+  });
+In this example, if the random number is less than 0.5, the Promise is fulfilled with the value ""Success!"" and the .then()
+method is called with this value. If the random number is greater than or equal to 0.5, the Promise is rejected with the
+reason ""Failure!"" and the .catch() method is called with this reason.
+","None of the Above",0,"Both methods can be used to handle resolved and rejected values interchangeably.",0,".then() is used to handle resolved values, while .catch() is used to handle rejected values.",1,".catch() is used to handle resolved values, while .then() is used to handle rejected values.",0
+"JavaScript Zertifikat","What is the difference between using a generator function and a regular function to produce a sequence of values in
+JavaScript?
+
+","Question: 142
+In JavaScript, a regular function returns a single value when it is called, while a generator function can produce a
+sequence of values over time. A generator function is defined using an asterisk (*) character after the function keyword,
+and it uses the yield keyword to return a value and pause the function execution until the next value is requested.
+When a regular function is called, it executes from start to finish and returns a single value. In contrast, a generator
+function returns an iterator that can be used to iterate over the sequence of values that it produces. Each time the
+iterator's next() method is called, the generator function resumes execution and produces the next value in the
+sequence.
+The ability to produce a sequence of values over time makes generator functions useful for tasks such as lazy evaluation
+and asynchronous programming. In addition, generator functions can be used to create infinite sequences of values,
+whereas regular functions can only return a fixed number of values based on their input parameters.
+","A generator function can pause and resume its execution, while a regular function runs to completion every time it is called",1,"A generator function is always asynchronous, while a regular function can be either asynchronous or synchronous.",0,"A generator function returns a generator object, while a regular function returns an array",0,"A generator function can only be used once, while a regular function can be called multiple times",0
+"JavaScript Zertifikat","What will be the output of the following code?
+function* fibonacci() { 
+ let [prev, curr] = [0, 1]; 
+ while (true) { 
+  [prev, curr] = [curr, prev + curr]; 
+  yield curr; 
+ } 
+} 
+const sequence = fibonacci(); 
+let result = []; 
+for (let i = 0; i < 10; i++) { 
+ result.push(sequence.next().value); 
+} 
+console.log(result); 
+","Question: 143
+The output of the code will be an array containing the first 10 numbers in the Fibonacci sequence: [1, 2, 3, 5, 8, 13, 21,
+34, 55, 89].
+The code defines a generator function fibonacci that generates an infinite sequence of Fibonacci numbers. The while loop
+in the function generates the next number in the sequence using destructuring assignment and the yield keyword.
+The code then creates a generator object sequence from the fibonacci function.
+A for loop is used to iterate over the first 10 values in the sequence, pushing each value onto the result array.
+Finally, the result array is logged to the console, displaying the first 10 numbers in the Fibonacci sequence.
+","[1, 2, 3, 5, 8, 13, 21, 34, 55, 89]",1,"[0, 2, 3, 5, 8, 13, 21, 34, 55, 89]",0,"[0, 1, 1, 2, 3, 5, 8, 13, 21, 34]",0,"[1, 1, 2, 3, 5, 8, 13, 21, 34, 55]",0
+"JavaScript Zertifikat","What is the output of the following code and why?
+let p = new Promise((resolve, reject) => { 
+ setTimeout(() => { 
+  resolve(""Promise Resolved""); 
+ }, 1000); 
+}); 
+p.then(result => console.log(result)); 
+console.log(""Finished""); 
+","Question: 144
+The output of the code will be:
+Finished Promise Resolved
+This is because when the Promise is created, it starts executing the asynchronous operation (in this case, a 1 second
+delay). While this operation is occurring, the rest of the code continues to execute. Therefore, ""Finished"" is printed to the
+console before the Promise is resolved. Once the Promise is resolved, the .then() callback is invoked with the resolved
+value and ""Promise Resolved"" is printed to the console.
+",Error,0,Nothing,0,"""Finished"" ""Promise Resolved""",1,"""Promise Resolved"" ""Finished""",0
+"JavaScript Zertifikat","What will the following code return when executed?
+let myIterable = {
+ *[Symbol.iterator]() {
+  yield 1; yield 2; yield 3; 
+ } 
+}; 
+let iterator = myIterable[Symbol.iterator]();
+console.log(iterator.next().value);
+console.log(iterator.next().value);
+console.log(iterator.next().value);
+console.log(iterator.next().done);
+","Question: 145
+","1, 2, 3, true",1,"1, 2, undefined, true",0,"1, 2, 3, false",0,"1, 2, undefined, false",0
+"JavaScript Zertifikat","What is the output of the code below?
+const person = {
+ firstName: 'John',
+ lastName: 'Doe',
+ getFullName: function() {
+  return this.firstName + ' ' + this.lastName;
+ }
+};
+const printName = person.getFullName.bind({firstName: 'Jane', lastName: 'Smith'}); 
+console.log(printName());
+","Question: 146
+The output of the code will be ""Jane Smith"" because the bind() method creates a new function with the same body and
+scope as the original function getFullName() but with a different this value. In this case, the this value is explicitly set to
+an object with firstName set to 'Jane' and lastName set to 'Smith'. Therefore, when printName() is called, it returns ""Jane
+Smith"".
+","Jane Doe",0,"Jane Smith",1,"undefined undefined",0,"John Doe",0
+"JavaScript Zertifikat","What will be the output of the following code?
+let obj1 = {name: ""John""};
+let obj2 = {age: 30};
+let merge = function(a, b) { 
+ return {...a, ...b}; 
+};
+console.log(merge(obj1, obj2)); 
+","Question: 147
+The output of the code will be an object containing properties from both obj1 and obj2, merged together using the spread
+operator. The output should be:
+{name: ""John"", age: 30}
+","{ name: 'John', age: 30 }",1,"{ age: 30 }",0,"{  age: 30, name: 'John'}",0,"[object Object]",0
+"JavaScript Zertifikat","What is the output of the following code snippet?
+function add(a = 5, b = 10) { 
+ return a + b; 
+} 
+console.log(add());
+","Question: 148
+The output of the code snippet will be 15.
+When the add() function is called without any arguments, the default parameter values of a=5 and b=10 are used, and
+the function returns the sum of the two, which is 15.
+",10,0,15,1,5,0,NaN,0
+"JavaScript Zertifikat","What is the expected output of the following JavaScript code?
+function* generator() { 
+ yield 1; yield 2; yield 3; 
+} 
+const gen = generator(); 
+console.log(gen.next().value); 
+console.log(gen.next().value); 
+console.log(gen.next().value); 
+console.log(gen.next().value); 
+","Question: 149
+The expected output of the following code is:
+1 2 3 undefined
+Explanation:
+The generator function generator is defined to yield three values: 1, 2, and 3.
+The gen variable is assigned the generator function by calling it.
+The first console.log statement calls the next() method of the generator object gen and prints the value property of the
+returned object, which is the first value yielded by the generator (1).
+The second console.log statement calls the next() method again and prints the second value yielded by the generator (2).
+The third console.log statement calls the next() method once more and prints the third value yielded by the generator
+(3).
+The fourth console.log statement calls the next() method again, but since there are no more values to yield, the value
+property of the returned object is undefined, and the done property is true.
+","1 2 3 Error",0,"undefined undefined undefined undefined",0,"1 2 3 undefined",1,"1 2 3 null",0
+"JavaScript Zertifikat","What is the output of the following code?
+const add = (a, b) => a + b; 
+const double = n => add(n, n); 
+console.log(double(3));
+","Question: 150
+The output of the code is 6.
+The add function takes two arguments and returns their sum. The double function takes a single argument and calls add
+function with that argument twice to get the sum of the number doubled. When double is called with 3, it returns
+add(3,3) which is equal to 6, and this value is logged to the console.
+",6,1,9,0,12,0,15,0
+"JavaScript Zertifikat","What is the correct way to wait for the result of a Promise before returning the final value in an asynchronous function?
+","Question: 151
+The correct way to wait for the result of a Promise before returning the final value in an asynchronous function is to use
+the async/await syntax. Here's an example:
+async function myAsyncFunction() {
+  const result = await myPromiseFunction();
+  return result;
+}
+In this example, myPromiseFunction() returns a Promise, and await is used to pause the execution of the function until
+the Promise is resolved. The value of the resolved Promise is then stored in the result variable, which is returned by the
+function.
+","Use a .then() block to handle the resolved value.",0,"Wrap the Promise in a setTimeout() call.",0,"None of the above.",0,"Use the await keyword before the Promise.",1
+"JavaScript Zertifikat","What is the output of the following JavaScript code?
+let promise = new Promise((resolve, reject) => {
+ setTimeout(() => {
+ resolve(1)
+}, 2000) });
+promise.then((value) => {
+ console.log(value);
+ return value + 1;
+}).then((value) => {
+ console.log(value);
+});
+","Question: 152
+The output of the following code will be:
+1 2
+Explanation:
+A promise is created that resolves with a value of 1 after a timeout of 2 seconds.
+The then method is chained to the promise, which logs the resolved value of 1 to the console and returns the value + 1
+(2).
+Another then method is chained to the previous one, which logs the value of 2 to the console.
+","1 undefined",0,"undefined undefined",0,"2 3",0,"1 2",1
+"JavaScript Zertifikat","What will the following code output and why?
+function logNum(num = 0, base = 10) {
+ console.log(Math.log(num) / Math.log(base));
+}
+logNum();
+logNum(2);
+logNum(2, 2);
+logNum(undefined, 2);
+","Question: 153
+The code will output:
+NaN 0 1 NaN
+When the logNum() function is called without arguments, both num and base are assigned default values of 0 and 10,
+respectively. Therefore, the expression Math.log(num) will evaluate to Math.log(0), which is -Infinity, and the expression
+Math.log(num) / Math.log(base) will evaluate to -Infinity / 1, which is still NaN.
+When logNum(2) is called, num is assigned a value of 2 and base takes its default value of 10. Therefore, the expression
+Math.log(num) will evaluate to Math.log(2) which is approximately 0.6931, and the expression Math.log(num) /
+Math.log(base) will evaluate to 0.6931 / 2.3026, which is approximately 0.
+When logNum(2, 2) is called, num is assigned a value of 2 and base is also assigned a value of 2. Therefore, the
+expression Math.log(num) will evaluate to Math.log(2) which is approximately 0.6931, and the expression Math.log(num)
+/ Math.log(base) will evaluate to 0.6931 / 0.6931, which is 1.
+When logNum(undefined, 2) is called, num takes its default value of 0, and base is explicitly assigned a value of 2.
+Therefore, the expression Math.log(num) will evaluate to Math.log(0), which is -Infinity, and the expression Math.log(num)
+/ Math.log(base) will evaluate to -Infinity / 0.6931, which is NaN.
+","NaN 0.6931471805599453 1 NaN",1,"NaN NaN NaN NaN",0,"0 0.6931471805599453 1 NaN",0,"0 NaN 1 NaN",0
+"JavaScript Zertifikat","What will be the output in the following code, when executed?
+const p1 = new Promise((resolve, reject) => {
+  setTimeout(() => resolve(""Promise 1""), 1000);
+});
+const p2 = new Promise((resolve, reject) => {
+ setTimeout(() => resolve(""Promise 2""), 2000);
+});
+Promise.race([p1, p2]).then((value) => {
+console.log(value);
+});
+","Question: 154
+The output of the following code will be ""Promise 1"".
+This is because the Promise.race() method takes an array of promises as its argument and returns a new promise that
+resolves or rejects as soon as one of the promises in the array resolves or rejects. In this case, p1 resolves after 1 second
+while p2 resolves after 2 seconds. Since p1 resolves first, the new promise returned by Promise.race() also resolves with
+the value of p1, which is ""Promise 1"". Therefore, the then() method logs ""Promise 1"" to the console.
+",Error,0,"Promise 2",0,"Promise 1",1,"[Promise 2, Promise 1]",0
+"JavaScript Zertifikat","What will be the output of the following code?
+function outerFunction(num) {
+ return function innerFunction(num2) {
+  return num + num2;
+ };
+}
+let add5 = outerFunction(5);
+console.log(add5(3)); 
+","Question: 155
+The output of the code will be 8.
+The outerFunction returns a function innerFunction, which takes a parameter num2. When add5 is assigned the value of
+outerFunction(5), it effectively becomes the innerFunction with num set to 5. Therefore, when add5(3) is called, it returns
+the result of num + num2, which is 5 + 3 = 8.
+",undefined,0,3,0,8,1,5,0
+"JavaScript Zertifikat","What is the output of the following JavaScript code?
+function* idMaker() {
+ let index = 0;
+ while (true)
+  yield index++;
+} 
+let gen = idMaker();
+console.log(gen.next().value);
+console.log(gen.next().value);
+console.log(gen.next().value);
+","Question: 156
+The output of the following JavaScript code will be:
+0 1 2
+Explanation:
+The idMaker function is a generator function that yields an infinite sequence of incrementing values starting from 0.
+When the gen generator object is created using the idMaker function, the first gen.next() call will execute the generator
+until the first yield statement and return the value 0. The subsequent calls to gen.next() will continue execution of the
+generator, incrementing the index variable and returning the next value in the sequence.
+","NaN NaN NaN",0,"0 1 2",1,"null null null",0,"undefined undefined undefined",0
+"JavaScript Zertifikat","What will be the output of the following code?
+var x = 10;
+var obj = {
+ x: 20,
+ method: function() { 
+  console.log(this.x);
+ }
+};
+var func = obj.method.bind({x: 30});
+func();
+","Question: 157
+The output of the code will be 30.
+Here's why:
+obj is an object with a property x set to 20 and a method method.
+func is a new function created by calling the bind method on the method function with {x: 30} as its argument.
+When func is called, this inside the method function refers to the object {x: 30} that was passed to the bind method, not
+obj. Therefore, this.x refers to 30, not 20. So func() logs 30 to the console.
+",undefined,0,30,1,10,0,20,0
+"JavaScript Zertifikat","What is the result of the following code?
+const promise = new Promise((resolve, reject) => {
+ setTimeout(() => {
+  resolve(""Resolved!"");
+ }, 2000);
+});
+ promise
+ .then(response => {
+  console.log(response);
+  return ""Then Called"";
+ })
+ .then(response => console.log(response))
+ .catch(error => console.log(error)); 
+","Question: 158
+The result of the code will be:
+Resolved! Then Called
+The promise object is created with a callback function that will resolve after 2 seconds with the string ""Resolved!"". After
+that, the then method is called on the promise object with a callback function that logs the response to the console and
+returns a new string ""Then Called"". The second then method is called with another callback function that logs the
+returned string to the console. Since there is no reject method called on the promise, the catch method is not triggered
+and nothing is logged to the console.
+","An error message",0,Resolved!,0,"Resolved! Then Called",1,"Then Called",0
+"JavaScript Zertifikat","What will the following JavaScript code log to the console?
+let promise = new Promise((resolve, reject) => {
+ resolve(""done""); 
+});
+promise.then(data => {
+ console.log(data);
+ return ""done2"";
+}).then(data => {
+ console.log(data);
+});
+","Question: 159
+The following code will log the following to the console:
+done done2
+The promise is resolved with the value ""done"", which is passed as the argument to the first then() method. This method
+logs ""done"" to the console, and then returns the value ""done2"". The second then() method is called with the value
+""done2"", which is logged to the console.
+","None of the Above",0,"""done2""",0,"""done"" ""done2""",1,"""done""",0

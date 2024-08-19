@@ -1,0 +1,11 @@
+.statsButton {
+    max-height: 100%;
+    min-height: 100%;
+    max-width: 18%;
+    min-width: 18%;
+}
+
+#detailsQuestion{
+    text-align: center;
+    width: 80%;
+}

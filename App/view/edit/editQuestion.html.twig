@@ -1,0 +1,64 @@
+{% extends "base.html.twig" %}
+
+{% block title %} Edit Questions{% endblock %}
+{% block head %}
+    <link href="./assets/css/editQuestions.css" rel="stylesheet">
+    <script src="./assets/js/editQuestions.js"></script>
+{% endblock %}
+{% block onload %}initEditQuestion(){% endblock %}
+{% block contentleft %}
+    <div id="jsDataEditQuestions" data-content="{{ jsData }}" hidden="hidden"></div>
+    <div id="jsDataEditCategories" data-content="{{ jsDataCategories }}" hidden="hidden"></div>
+    <label>
+        <input name="answerArrayJSON" type="text" hidden="hidden" id="answerArrayJSON">
+    </label>
+    <div class="row align-self-center mx-5 pb-2" id="editQuestionDiv">
+        <label>
+            <input name="editQuestionId" type="number" hidden="hidden" id="editQuestionId">
+        </label>
+        <div>Frage - Text</div>
+        <label>
+            <textarea class="editText" name="editQuestionText" id="editQuestionText"></textarea>
+        </label>
+        <div>Frage-Erklärung:</div>
+        <label>
+            <textarea class="editText" name="editQuestionExplanation" id="editQuestionExplanation"></textarea>
+        </label>
+        <div>Category:</div>
+        <label id="editSelectLabel">
+            <select class="editCategory" name="editCategoryId" id="editCategory">
+                <option value="0" id="newCategory">create new category</option>
+            </select>
+        </label>
+        <label>
+            <input name="editCategoryText" type="text" id="editCategoryText">
+        </label>
+
+    </div>
+    <div class="row align-self-center mx-5 pb-2" id="editAnswersDiv">
+        <label>
+            Antworten:
+        </label>
+    </div>
+{% endblock %}
+{% block contentright %}
+
+{% endblock %}
+{% block buttons %}
+    <div class="row row-cols-3 py-4">
+
+        <label>
+            <input type="submit" name="cancelEditQuestion" class="editButton btn-lg btn-info shadow-sm"
+                   id="cancelEditQuestion" value="Discard changes">
+
+        </label>
+
+        <label id="confirmEditChanges" > <button class="editButton btn-lg btn-info shadow-sm">
+                save changes
+            </button></label>
+        <label>
+            <input type="submit" name="confirmEditQuestion" id="confirmEditQuestion" value="Save changes" hidden="hidden">
+        </label>
+    </div>
+{% endblock %}
+

@@ -1,0 +1,59 @@
+{% extends "base.html.twig" %}
+
+{% block title %} Answer Questions{% endblock %}
+{% block head %}
+    <link href="./assets/css/answerQuestion.css" rel="stylesheet">
+    <script src="./assets/js/answerQuestion.js"></script>
+{% endblock %}
+{% block onload %}initAnswerQuestion(){% endblock %}
+
+{% block contentleft %}
+    <div id="jsDataAnswerQuestion" data-content="{{ jsData }}" hidden="hidden"></div>
+    <div id="jsDataContent" data-content="{{ contentInfo }}" hidden="hidden"></div>
+    <div class="row mx-5 pb-2 scrollableQuestion">
+        <label class="col btn-lg bold btn-primary rounded-3 shadow disabled my-2 w-100 questionLabel" id="questionText">
+        </label>
+    </div>
+    <div id="answersList">
+    </div>
+{% endblock %}
+{% block contentright %}
+    <div class="card align-self-center rounded-3 mt-3 ml-1 ml-1 pl-1 h-75">
+        <div class="card-body rounded-3">
+            <br>
+            <h5 class="card-title">Statistic Question #<span id="statsTitle"></span></h5>
+            <br>
+            <br>
+            <p class="card-text"><span id="statsTimesAsked"></span> times asked</p>
+            <br>
+            <p class="card-text"><span id="statsTimesRight"></span> times answered correct</p>
+
+            <button type="button" id="clearStatsOfQuestion" data-bs-target="#modal" data-bs-toggle="modal"
+                    class="btn-lg btn-warning rounded-3 shadow-sm w-100">clear Stats
+            </button>
+        </div>
+    </div>
+{% endblock %}
+{% block buttons %}
+    <div class="row row-cols-5 px-5 mx-3" id="answerActionButtons">
+        <div class="col  actionButton" id="divPrev">
+            <label>
+                <input type="submit" name="setPrev" class="btn-lg btn-info shadow-sm w-100"
+                       value="previous question" id="prev">
+            </label>
+        </div>
+        <div class="col actionButton" id="divFinish">
+            <label>
+                <input type="submit" name="finish" class="btn-lg btn-info shadow-sm w-100"
+                       value="finish quiz" id="finishQuiz">
+            </label>
+        </div>
+        <div class="col actionButton" id="divNext">
+            <label>
+                <input type="submit" name="setNext" class="btn-lg btn-info shadow-sm w-100"
+                       value="next question" id="next">
+            </label>
+        </div>
+    </div>
+{% endblock %}
+

@@ -1,0 +1,21 @@
+
+.questionLabel{
+    text-align: left;
+    align-content: start;
+    align-items: start;
+    white-space: pre-line;
+}
+
+.scrollableQuestion {
+    max-height: 12rem;
+    min-height: 12rem;
+    overflow-y: auto;
+    scrollbar-gutter: stable both-edges;
+}
+
+#answerActionButtons {
+    position: absolute;
+}
+.actionButton {
+    width: 25%;
+}

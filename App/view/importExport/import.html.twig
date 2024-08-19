@@ -1,0 +1,27 @@
+{% extends "base.html.twig" %}
+{% block head %}
+    <link href="/assets/css/import.css" rel="stylesheet">
+    <script src="/assets/js/import.js"></script>
+{% endblock %}
+{% block title %} Import von Fragen via CSV Datei {% endblock %}
+{% block onload %}
+    initImport();
+{% endblock %}
+{% block contentleft %}
+    <div id="importLeftContent">
+
+    </div>
+{% endblock %}
+    {% block contentright %}
+        <div class="importRightContent">
+
+        </div>
+    {% endblock %}
+{% block buttons %}
+<div class="importButtons">
+
+</div>
+{% endblock %}
+{% block scripts %}
+
+{% endblock %}

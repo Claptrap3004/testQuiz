@@ -1,0 +1,83 @@
+body {
+    display: block;
+    position:  relative;
+    background-image: url('/assets/img/qmarks.jpg');
+    background-size: cover;
+    overflow: hidden;
+}
+
+#user-feedback{
+    color: red;
+    font-size: x-small;
+}
+
+.scrollable-contentleft {
+    /*position: absolute;*/
+    /*left: 5%;*/
+    /*right: 25%;*/
+    /*top: 15%;*/
+    /*bottom:25%;*/
+    min-width: 75rem;
+    max-width: 75rem;
+    max-height: 35rem;
+    min-height: 35rem;
+    overflow: hidden;
+    scrollbar-gutter: stable both-edges;
+    border-radius: 1.5rem;
+}
+
+
+.content-right {
+    /*position: absolute;*/
+    /*right: 5%;*/
+    /*bottom: 25%;*/
+    /*left:75%;*/
+    /*top: 15%;*/
+    min-width: 18em;
+    max-width: 18rem;
+    max-height: 35rem;
+    min-height: 35rem;
+    border-radius: 1.5rem;
+    overflow: hidden;
+}
+
+.scrollable-contentbuttons {
+    /*position: absolute;*/
+    /*left: 10%;*/
+    /*right: 25%;*/
+    /*bottom: 5%;*/
+    min-width: 120rem;
+    max-width: 120rem;
+    min-height: 10rem;
+    max-height: 10rem;
+    overflow: hidden;
+    scrollbar-gutter: stable both-edges;
+
+}
+#modal {
+}
+.overlay {
+    position: fixed;
+    top: 30%;
+    bottom: 30%;
+    left: 35%;
+    right: 35%;
+    width: 30%;
+    height: 30%;
+
+}
+
+body, html, head,
+.scrollable-contentleft:hover,
+.scrollable-contentbuttons:hover,
+.scrollable-contentleft:active,
+.scrollable-contentbuttons:active,
+.scrollable-contentleft:focus,
+.scrollable-contentbuttons:focus {
+    overflow-y: auto;
+}
+
+.login-contentRight {
+    display: none;
+}
+

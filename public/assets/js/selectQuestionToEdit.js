@@ -80,7 +80,6 @@ const createRadioButton = (question) => {
 
 
     label.setAttribute('data-bs-toggle', 'button');
-    label.addEventListener('click', clickQuestion)
 
 
     div.className = "row align-self-center mx-3 pb-2";
@@ -92,31 +91,35 @@ const createRadioButton = (question) => {
     label.id = 'ql_id' + question.id;
     label.for = 'ql_id' + question.id;
 
+    div.appendChild(input);
     label.appendChild(createTableRow(question))
+    label.addEventListener('click', clickQuestion)
     input.type = 'radio';
     input.name = 'questionId';
     input.autocomplete = 'off';
     input.value = question.id;
 
-    label.appendChild(input);
     div.appendChild(label);
     // if (question.id === questions[0].id) input.checked = true;
     return div;
 }
 
 const clickQuestion = (event) => {
-    let idStr = "#q_id" + event.target.id.replace('ql_id', '');
+    let idStr = "#q_id" + event.currentTarget.id.replace('ql_id', '');
     let button = document.querySelector(idStr);
+    console.log(idStr);
     button.click();
     let labels = document.querySelectorAll('.questionLabels');
     for (const label of labels) {
-        if (label === event.target) continue;
+        if (label === event.currentTarget) continue;
         label.ariaPressed = 'false';
         label.className = "questionLabels col align-self-center bold btn btn-outline-info rounded-3 shadow btn-lg  mx-3 my-2 p-1 w-100";
     }
     let anker = document.querySelector('#selectQuestionToEdit');
     anker.href = 'edit/editQuestion/' + button.value;
+    console.log(anker);
 }
+
 
 const arrangeButtons = () => {
     document.querySelector('#divBackToMain').style.left = '20%';

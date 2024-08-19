@@ -74,7 +74,7 @@ class DBFactory
         $id = 0;
         $items = $handler->findAll();
         foreach ($items as $item) {
-            if (strtoupper($item['text']) === strtoupper(trim($searchText))) $id = $item['id'];
+            if (($item['text']) === trim($searchText)) $id = $item['id'];
             if ($id !== 0) break;
         }
         return $id;

@@ -4,8 +4,7 @@ const initWelcome = () => {
     document.querySelector('#quickstart50').addEventListener('click', quick50)
     resizeLeftContentSpacer(10);
     let exists = quizExists().then(() => {
-        console.log(true);return true}).catch(() => {return false});
-    console.log(exists)
+        return true}).catch(() => {return false});
     if (exists) document.querySelector('#directToAnswers').click();
 }
 const clearAllStats = () => {
@@ -32,11 +31,9 @@ const quizExists = () => {
         xhr.open("GET", "/quizQuestion/quizExists", true);
         xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhr.onload = () => {
-            if (xhr.status >= 200 && xhr.status < 300) {
-                resolve(true);
-            } else {
-                reject(false);
-            }
+            console.log(xhr.responseText)
+           if (xhr.responseText !== '') resolve(true);
+           else reject(false);
         };
         xhr.onerror = () => reject(false);
         xhr.send();

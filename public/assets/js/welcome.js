@@ -35,6 +35,7 @@ const quizExists = () => {
            if (xhr.responseText !== '') resolve(true);
            else reject(false);
         };
+        // needs to be fixed
         xhr.onerror = () => reject(false);
         xhr.send();
     });

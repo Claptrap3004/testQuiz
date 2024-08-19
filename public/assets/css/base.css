@@ -12,11 +12,6 @@ body {
 }
 
 .scrollable-contentleft {
-    /*position: absolute;*/
-    /*left: 5%;*/
-    /*right: 25%;*/
-    /*top: 15%;*/
-    /*bottom:25%;*/
     min-width: 75rem;
     max-width: 75rem;
     max-height: 35rem;
@@ -28,11 +23,6 @@ body {
 
 
 .content-right {
-    /*position: absolute;*/
-    /*right: 5%;*/
-    /*bottom: 25%;*/
-    /*left:75%;*/
-    /*top: 15%;*/
     min-width: 18em;
     max-width: 18rem;
     max-height: 35rem;
@@ -42,14 +32,10 @@ body {
 }
 
 .scrollable-contentbuttons {
-    /*position: absolute;*/
-    /*left: 10%;*/
-    /*right: 25%;*/
-    /*bottom: 5%;*/
     min-width: 120rem;
     max-width: 120rem;
-    min-height: 10rem;
-    max-height: 10rem;
+    min-height: 14rem;
+    max-height: 14rem;
     overflow: hidden;
     scrollbar-gutter: stable both-edges;
 

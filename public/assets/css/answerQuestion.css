@@ -19,3 +19,10 @@
 .actionButton {
     width: 25%;
 }
+#questionText {
+    color: black;
+}
+.btn-outline-secondary.answerLabels {
+    color: black !important;
+    border-color: black !important;
+}

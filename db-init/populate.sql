@@ -1,5 +1,5 @@
 USE quiz;
-INSERT INTO user (username, email, password) VALUES ('admin', 'admin@mail.org','$2y$10$T412d/k3KtTJAqN2X4tZV.nuqBZXswqWe01CQ8YR4g5rSQCYt0PPa');
+INSERT INTO user (username, email, password) VALUES ('admin', 'admin@mail.org','$$2y$10$DfHIGsjW4ebmi/BBMO8IqOsswh8BBOoKc/5tD2JGrhyDlxuYWOOue');
 
 DROP TABLE IF EXISTS track_quiz_content_admin_mail_org;
 DROP TABLE IF EXISTS quiz_content_admin_mail_org;

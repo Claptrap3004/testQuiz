@@ -25,7 +25,7 @@ class EditController extends Controller
                 $fileName = $_FILES['file']['tmp_name'];
 
                 $importer->readCSV($fileName);
-//                $this->cleanUp();
+                $this->cleanUp();
             }
             else {
                 $this->view(UseCase::IMPORT->getView(),['error' => 'Incorrect File']);

@@ -1,5 +1,6 @@
 # Basis-Image für Apache und PHP 8.2
 FROM php:8.2-apache
+ENV DEBIAN_FRONTEND=noninteractive
 # Installation von notwendigen Paketen, PHP-Erweiterungen und Composer
 RUN apt-get update && apt-get install -y \
     libpng-dev \
@@ -46,9 +47,12 @@ RUN a2enmod ssl
 
 # Kopieren des aktuellen Verzeichnisses in den Container
 COPY . /var/www/html
+RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - \
+    && apt-get install -y nodejs
 
 # Installation von Twig über Composer
 RUN composer install
+#RUN npm install
 
 RUN chmod -R 755 /var/www/html
 RUN chown -R www-data:www-data /var/www/html

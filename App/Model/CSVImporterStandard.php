@@ -17,8 +17,6 @@ class CSVImporterStandard implements CanHandleCSV
         $this->factory = Factory::getFactory();
         $this->dbFactory = DBFactory::getFactory();
     }
-
-
     function readCSV(string $fileName, string $separator = '@' ): void
     {
         $row = 0;
@@ -36,7 +34,6 @@ class CSVImporterStandard implements CanHandleCSV
 
     private function proceedData(array $data): void
     {
-
         $category = $this->restoreLineBreaks($data[0]);
         $question = $this->restoreLineBreaks($data[1]);
         $explanation = $this->restoreLineBreaks($data[2]);;
@@ -107,44 +104,5 @@ class CSVImporterStandard implements CanHandleCSV
         fclose($output);
     }
 
-//    function writeCSV(string $fileName, array $questionIds): void
-//    {
-//
-//        $description = 'Category,Question,Explanation,Answer,isRight,Answer,isRight,...';
-//
-//        $fp = fopen($fileName, 'wb');
-//        $val = explode(",", $description);
-//        fputcsv($fp, $val,'@');
-//        foreach ($questionIds as $questionId) {
-//            try {
-//                $questionData = $this->factory->createQuizQuestionById($questionId);
-////                file_put_contents('testExport.log',"managed to Export question $questionId \n", FILE_APPEND);
-//
-//            } catch (Exception $e) {
-////                file_put_contents('testExport.log',"failed to Export question $questionId \n", FILE_APPEND);
-//                continue;
-//            }
-//            $preparedData = [];
-//            $preparedData[] = $this->putLinebreaks($questionData->getCategory()->getText());
-//            $preparedData[] = $this->putLinebreaks($questionData->getText());
-//            $preparedData[] = $this->putLinebreaks($questionData->getExplanation());
-//            $relationData = $this->relationDBHandler->findById($questionData->getId());
-//            foreach ($relationData as $relation) {
-//                $preparedData[] = $this->putLinebreaks($this->factory->findIdTextObjectById((int)$relation['answer_id'], KindOf::ANSWER)->getText());
-//                $preparedData[] = $this->putLinebreaks($relation['is_right']);
-//            }
-//            fputcsv($fp, $preparedData,'@');
-//        }
-////         file_put_contents('testExport', $formattedData,FILE_APPEND);
-//        fclose($fp);
-//        header('Content-Type: text/csv');
-//        header('Content-Description: File Transfer');
-//        header('Content-Type: application/csv');
-//        header('Expires: 0');
-//        header('Cache-Control: must-revalidate');
-//        header('Pragma: public');
-//        header('Content-Disposition: attachment; filename=' . $fileName);
-//        header('Content-Length: ' . filesize($fileName));
-//
-//    }
+
 }

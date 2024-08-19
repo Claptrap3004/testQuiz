@@ -1,11 +1,13 @@
-const initWelcome = ()=>{
-    document.querySelector('#clearAllStatsButton').addEventListener('click',clearAllStats)
-    document.querySelector('#quickstart20').addEventListener('click',quick20)
-    document.querySelector('#quickstart50').addEventListener('click',quick50)
+const initWelcome = () => {
+    document.querySelector('#clearAllStatsButton').addEventListener('click', clearAllStats)
+    document.querySelector('#quickstart20').addEventListener('click', quick20)
+    document.querySelector('#quickstart50').addEventListener('click', quick50)
     resizeLeftContentSpacer(10);
+    let exists = quizExists().then(() => {return true}).catch(() => {return false});
+    if (exists) document.querySelector('#directToAnswers').click();
 }
 const clearAllStats = () => {
-    changeModal('Löschen aller Stats','Durch bestätigen werden alle Stats gelöscht', confirmDeleteStats)
+    changeModal('Löschen aller Stats', 'Durch bestätigen werden alle Stats gelöscht', confirmDeleteStats)
 }
 
 const confirmDeleteStats = () => {
@@ -18,8 +20,25 @@ const confirmDeleteStats = () => {
 
 const deleteAllStats = () => {
     let xhttp = new XMLHttpRequest();
-    xhttp.open("GET", "/quizQuestion/deleteStatsAll",true);
+    xhttp.open("GET", "/quizQuestion/deleteStatsAll", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send();
+}
+const quizExists = () => {
+    return new Promise((resolve, reject) => {
+        let xhr = new XMLHttpRequest();
+        xhr.open("GET", "/quizQuestion/quizExists", true);
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhr.onload = () => {
+            if (xhr.status >= 200 && xhr.status < 300) {
+                resolve(true);
+            } else {
+                reject(false);
+            }
+        };
+        xhr.onerror = () => reject(false);
+        xhr.send();
+    });
+
 }
 

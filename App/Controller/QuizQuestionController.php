@@ -32,6 +32,7 @@ class QuizQuestionController extends Controller
      */
     public function welcome(): void
     {
+
         $user = $this->factory->createUser($_SESSION['UserId']);
         $stats = new UserStats($user);
         $this->view(UseCase::WELCOME->getView(), ['user' => $user, 'stats' => $stats]);
@@ -47,8 +48,10 @@ class QuizQuestionController extends Controller
     {
         $handler = KindOf::QUIZCONTENT->getDBHandler();
         $handler->create(['question_ids' => $data]);
-
-
+    }
+    public function quizExists():bool
+    {
+        return KindOf::QUIZCONTENT->getDBHandler()->findAll() !== [];
     }
 
     /**
@@ -226,7 +229,6 @@ class QuizQuestionController extends Controller
         $selector = new QuestionSelector();
         $questions = $selector->select((int)$numberOfQuestions);
         $this->fillTables($questions);
-        $this->answer();
     }
 
     /**

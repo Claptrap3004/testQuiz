@@ -24,8 +24,7 @@ class UserController extends Controller
      */
     public function login(): void
     {
-        $pwLog = password_hash('quizAdmin', PASSWORD_BCRYPT);
-        file_put_contents('pwHash.log',$pwLog);
+
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $email = $_POST['email'] ?? '';
             $password = $_POST['password'] ?? '';
@@ -33,7 +32,10 @@ class UserController extends Controller
             // user tries to log in
             if (isset($_POST['loginUser'])) {
                 $error = $this->checkErrorsLogin($email, $password);
-                if ($error->isNoError()) $this->successfulLogin($email);
+                if ($error->isNoError()){
+                    if ($error->email === null) $error->email = ErrorMessage::EMAILS_NOT_MATCH->getNoErrorElement($email);
+                    $this->successfulLogin($email);
+                }
                 else $this->reportError($error);
             }
             // user tries to register
@@ -43,7 +45,12 @@ class UserController extends Controller
                 $userName = $_POST['userName'] ?? '';
 
                 $error = $this->checkErrorsRegister($email, $emailValidate, $password, $passwordValidate, $userName);
-                if ($error->isNoError()) $this->successfulRegister($userName,$email,$password);
+                if ($error->isNoError()) {
+                    if ($error->username === null) $error->username = ErrorMessage::USER_CREATE_FAILS->getNoErrorElement($userName);
+                    if ($error->email === null) $error->email = ErrorMessage::EMAILS_NOT_MATCH->getNoErrorElement($email);
+                    if ($error->emailValidate === null) $error->emailValidate = ErrorMessage::EMAILS_NOT_MATCH->getNoErrorElement($emailValidate);
+                    $this->successfulRegister($userName,$email,$password);
+                }
                 else $this->reportError($error);
             }
             // invalid post request
@@ -91,7 +98,7 @@ class UserController extends Controller
         elseif (!$this->userExists($email)) $error->email = ErrorMessage::USER_DOES_NOT_EXIST->getErrorElement($email);
         if (!$this->validatePassword($password)) $error->password = ErrorMessage::PASSWORD_INVALID->getErrorElement();
         elseif (!$this->checkCorrectPassword($email, $password)) $error->email = ErrorMessage::CREDENTIALS_INVALID->getErrorElement($email);
-        if ($error->email === null) $error->email = ErrorMessage::EMAILS_NOT_MATCH->getNoErrorElement($email);
+
         return $error;
     }
 
@@ -119,9 +126,7 @@ class UserController extends Controller
             $error->password = ErrorMessage::PASSWORDS_NOT_MATCH->getErrorElement();
             $error->passwordValidate = ErrorMessage::PASSWORDS_NOT_MATCH->getErrorElement();
         }
-        if ($error->username === null) $error->username = ErrorMessage::USER_CREATE_FAILS->getNoErrorElement($userName);
-        if ($error->email === null) $error->email = ErrorMessage::EMAILS_NOT_MATCH->getNoErrorElement($email);
-        if ($error->emailValidate === null) $error->emailValidate = ErrorMessage::EMAILS_NOT_MATCH->getNoErrorElement($emailValidate);
+
         return $error;
     }
 

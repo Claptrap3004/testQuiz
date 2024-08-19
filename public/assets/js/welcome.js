@@ -3,7 +3,9 @@ const initWelcome = () => {
     document.querySelector('#quickstart20').addEventListener('click', quick20)
     document.querySelector('#quickstart50').addEventListener('click', quick50)
     resizeLeftContentSpacer(10);
-    let exists = quizExists().then(() => {return true}).catch(() => {return false});
+    let exists = quizExists().then(() => {
+        console.log(true);return true}).catch(() => {return false});
+    console.log(exists)
     if (exists) document.querySelector('#directToAnswers').click();
 }
 const clearAllStats = () => {

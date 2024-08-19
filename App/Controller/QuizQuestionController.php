@@ -51,7 +51,7 @@ class QuizQuestionController extends Controller
     }
     public function quizExists():bool
     {
-        return KindOf::QUIZCONTENT->getDBHandler()->findAll() !== [];
+        return count(KindOf::QUIZCONTENT->getDBHandler()->findAll()) > 0;
     }
 
     /**

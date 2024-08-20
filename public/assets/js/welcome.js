@@ -3,9 +3,7 @@ const initWelcome = () => {
     document.querySelector('#quickstart20').addEventListener('click', quick20)
     document.querySelector('#quickstart50').addEventListener('click', quick50)
     resizeLeftContentSpacer(10);
-    let exists = quizExists().then(() => {
-        return true}).catch(() => {return false});
-    if (exists) document.querySelector('#directToAnswers').click();
+    checkQuizExists().then(r => directToAnswerScreen()).catch();
 }
 const clearAllStats = () => {
     changeModal('Löschen aller Stats', 'Durch bestätigen werden alle Stats gelöscht', confirmDeleteStats)
@@ -25,20 +23,25 @@ const deleteAllStats = () => {
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send();
 }
+
+const checkQuizExists = async function (){
+    return await quizExists();
+}
 const quizExists = () => {
     return new Promise((resolve, reject) => {
         let xhr = new XMLHttpRequest();
         xhr.open("GET", "/quizQuestion/quizExists", true);
         xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhr.onload = () => {
-            console.log(xhr.responseText)
-           if (xhr.responseText !== '') resolve(true);
+
+           if (Number(xhr.responseText) > 0) resolve(true);
            else reject(false);
         };
         // needs to be fixed
         xhr.onerror = () => reject(false);
         xhr.send();
     });
+
 
 }
 

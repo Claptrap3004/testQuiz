@@ -1,6 +1,12 @@
 const init = () => {
     document.querySelector('#navQuickStart').addEventListener('click', quick20);
 }
+const directToAnswerScreen = () => {
+    document.querySelector('#directToAnswers').click();
+}
+const directToWelcomeScreen = () => {
+    document.querySelector('#directToWelcome').click();
+}
 
 const changeModal = (title, text, confirmFunction) => {
     console.log('modal set')
@@ -11,6 +17,7 @@ const changeModal = (title, text, confirmFunction) => {
     document.querySelector('#modalText').innerHTML = text;
     document.querySelector('#modalConfirm').addEventListener('click', confirmFunction);
 }
+
 
 const removeLeftContentSpacer = () => {
     document.querySelector('#spacerContentLeft').remove();
@@ -32,5 +39,5 @@ const quickstart = (numberOfQuestions) => {
     xhttp.open("GET", url,true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send();
-    document.querySelector('#directToAnswers').click();
+   directToAnswerScreen();
 }

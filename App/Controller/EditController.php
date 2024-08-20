@@ -107,7 +107,7 @@ class EditController extends Controller
                if ($questionId === 0) $id = DBFactory::getFactory()->createNewQuizQuestion($text, $categoryId);
                 // new EditQuestion instance needs to be created and updated with submitted user inputs, after
                 // EditQuestion contains all edited values it needs to update itself to db
-                if ($id != null && $categoryId != null) $this->updateEditedQuestion((int)$id, (int)$categoryId, $text, $explanation, $answers);
+                if (isset($_POST['confirmEditQuestion'])) $this->updateEditedQuestion((int)$id, (int)$categoryId, $text, $explanation, $answers);
                 $this->view(UseCase::WELCOME->getView(), []);
             }
             else $this->showEditQuestion($questionId);

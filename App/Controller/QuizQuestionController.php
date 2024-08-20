@@ -49,9 +49,11 @@ class QuizQuestionController extends Controller
         $handler = KindOf::QUIZCONTENT->getDBHandler();
         $handler->create(['question_ids' => $data]);
     }
-    public function quizExists():bool
+    public function quizExists():void
     {
-        return count(KindOf::QUIZCONTENT->getDBHandler()->findAll()) > 0;
+        $json = json_encode(KindOf::QUIZCONTENT->getDBHandler()->findAll());
+        file_put_contents('quizExists.log', $json);
+        echo count(KindOf::QUIZCONTENT->getDBHandler()->findAll());
     }
 
     /**

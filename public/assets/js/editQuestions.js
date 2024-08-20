@@ -20,6 +20,7 @@ const initEditQuestion = () => {
 const addListeners = () => {
     document.querySelector('#editCategory').addEventListener('change',toggleInputVisible);
     document.querySelector('#confirmEditChanges').addEventListener('click',createAnswerObjectArray);
+    document.querySelector('#cancelEditQuestion').addEventListener('click',directToWelcomeScreen);
 
 }
 

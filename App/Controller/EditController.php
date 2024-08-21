@@ -122,7 +122,6 @@ class EditController extends Controller
          return ($id > 0 &&
                 $categoryId > 0 &&
                 $text != '' &&
-                $explanation != '' &&
                 $answers != null &&
                 count($answers) >= 4);
     }

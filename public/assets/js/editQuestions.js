@@ -15,6 +15,7 @@ const initEditQuestion = () => {
     createInputFields();
     addListeners();
     fillInputFields();
+
 }
 
 const addListeners = () => {
@@ -32,13 +33,18 @@ const toggleInputVisible = (event) => {
 }
 
 const createSelectOptions = () => {
+    let preselected = false;
     for (const category of categories) {
         let categorySelect = document.createElement('option');
-        if (category.id === editData.category.id) categorySelect.selected = true;
+        if (category.id === editData.category.id) {
+            categorySelect.selected = true;
+            preselected = true;
+        }
         categorySelect.value = category.id;
         categorySelect.innerHTML = category.text;
         document.querySelector('#editCategory').appendChild(categorySelect);
     }
+    if (!preselected) document.querySelector('#editCategoryText').style.visibility = 'visible';
 }
 
 

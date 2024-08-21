@@ -117,12 +117,13 @@ class EditController extends Controller
             $this->view(UseCase::WELCOME->getView(), []);
         }
     }
-    private function checkEditInput(int $id, int $categoryId, string $text, string $explanation, array $answers):bool
+    private function checkEditInput(int $id, int $categoryId, string $text, string $explanation, ?array $answers):bool
     {
          return ($id > 0 &&
                 $categoryId > 0 &&
                 $text != '' &&
                 $explanation != '' &&
+                $answers != null &&
                 count($answers) >= 4);
     }
 

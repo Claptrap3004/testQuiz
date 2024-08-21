@@ -51,8 +51,6 @@ class QuizQuestionController extends Controller
     }
     public function quizExists():void
     {
-        $json = json_encode(KindOf::QUIZCONTENT->getDBHandler()->findAll());
-        file_put_contents('quizExists.log', $json);
         echo count(KindOf::QUIZCONTENT->getDBHandler()->findAll());
     }
 

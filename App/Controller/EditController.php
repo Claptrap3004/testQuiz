@@ -99,7 +99,6 @@ class EditController extends Controller
                 $categoryId = $_POST['editCategoryId'] ?? null;
                 $categoryText = $_POST['editCategoryText'] ?? null;
                 $answers = json_decode($answerArray);
-
                 // if user selects create new category id will be 0, hence new category needs to be created
                 if ($categoryId < 1) $categoryId = DBFactory::getFactory()->createCategory($categoryText);
 
@@ -107,7 +106,9 @@ class EditController extends Controller
                if ($questionId === 0) $id = DBFactory::getFactory()->createNewQuizQuestion($text, $categoryId);
                 // new EditQuestion instance needs to be created and updated with submitted user inputs, after
                 // EditQuestion contains all edited values it needs to update itself to db
-                if (isset($_POST['confirmEditQuestion'])) $this->updateEditedQuestion((int)$id, (int)$categoryId, $text, $explanation, $answers);
+
+                if ($this->checkEditInput((int)$id, (int)$categoryId, $text, $explanation, $answers))
+                    $this->updateEditedQuestion((int)$id, (int)$categoryId, $text, $explanation, $answers);
                 $this->view(UseCase::WELCOME->getView(), []);
             }
             else $this->showEditQuestion($questionId);
@@ -115,6 +116,14 @@ class EditController extends Controller
             // if method has been called with no proper parameter it will return user to main screen
             $this->view(UseCase::WELCOME->getView(), []);
         }
+    }
+    private function checkEditInput(int $id, int $categoryId, string $text, string $explanation, array $answers):bool
+    {
+         return ($id > 0 &&
+                $categoryId > 0 &&
+                $text != '' &&
+                $explanation != '' &&
+                count($answers) >= 4);
     }
 
     private function questionExists(int $id):bool
@@ -138,6 +147,7 @@ class EditController extends Controller
 
     private function updateEditedQuestion(int $id, int $categoryId, string $text, string $explanation, array $answers): void
     {
+            file_put_contents('checkEdit.log', "question $id\n",8);
         try {
             $editQuestion = $this->factory->createEditQuestionById($id);
             $editQuestion->setText($text);

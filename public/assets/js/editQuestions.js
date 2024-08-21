@@ -65,6 +65,7 @@ const createAnswerInputField = (index) => {
     checkbox.className = 'editCheckBox mx-3 '
     field.className = "editText ";
 
+
     checkbox.type = "checkbox";
     field.cols=100;
     field.rows=1;
